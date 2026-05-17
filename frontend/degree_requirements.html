@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degree Requirements - Academic Chatbot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { background: #05070a; overflow-x: hidden; }
+        
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 70% 80%, rgba(236, 72, 153, 0.08) 0%, transparent 40%);
+            filter: blur(80px);
+        }
+
+        .container { 
+            padding: 120px 5% 60px; 
+            max-width: 1000px; 
+            margin: 0 auto; 
+        }
+
+        h1 { 
+            font-size: 3rem; 
+            font-weight: 700;
+            margin-bottom: 40px;
+            letter-spacing: -0.02em;
+            background: linear-gradient(to bottom, #fff 0%, #a5a5a5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .program-grid { display: flex; flex-direction: column; gap: 32px; }
+
+        .program-card { 
+            background: rgba(20, 25, 35, 0.4); 
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border); 
+            border-radius: 24px; 
+            padding: 40px; 
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--primary);
+            opacity: 0.5;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+
+        .program-card h2 { font-size: 1.8rem; margin-bottom: 16px; color: #fff; }
+        .program-card p { color: var(--text-muted); margin-bottom: 32px; line-height: 1.7; font-size: 1.05rem; }
+        
+        .download-btn { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 10px;
+            padding: 12px 28px; 
+            border-radius: 30px; 
+            background: rgba(255,255,255,0.05); 
+            color: #fff; 
+            text-decoration: none; 
+            font-weight: 600;
+            border: 1px solid var(--border);
+            transition: all 0.2s; 
+        }
+        .download-btn:hover { 
+            background: #fff; 
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .container { padding: 100px 5% 40px; }
+            .program-card { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <nav>
+        <div class="nav-logo">Academic Chatbot</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="degree_requirements.html">Degree Requirements</a>
+            <a href="courses.html">Courses</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container entrance-anim">
+        <h1>Degree Requirements</h1>
+        
+        <div class="program-grid">
+            <div class="program-card">
+                <h2>Computer Science (B.Sc.)</h2>
+                <p>Master the art of problem-solving through computing. This programme focuses on algorithms, software architecture, and the theoretical foundations of information. Completion requires 120 units for Direct Entry and 160 units for 100-Level Entry.</p>
+                <a class="download-btn" href="../data/student%20hand%20book/Computer%20Science%20BMAS%20handbook.pdf" target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download Handbook
+                </a>
+            </div>
+
+            <div class="program-card" style="border-left-color: var(--accent);">
+                <h2>Cyber Security (B.Sc.)</h2>
+                <p>Secure the digital frontier. Our curriculum covers cryptography, digital forensics, and network defense. Students gain hands-on experience in our security labs, requiring 120–160 units for graduation.</p>
+                <a class="download-btn" href="../data/student%20hand%20book/Cyber%20Security%20handbook.pdf" target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download Handbook
+                </a>
+            </div>
+
+            <div class="program-card" style="border-left-color: #10b981;">
+                <h2>Information Technology (B.Sc.)</h2>
+                <p>Bridge the gap between technology and business. This track emphasizes web systems, cloud integration, and database management, preparing students to lead in the modern IT landscape.</p>
+                <a class="download-btn" href="../data/student%20hand%20book/information%20technology%20handbook.pdf" target="_blank">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download Handbook
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

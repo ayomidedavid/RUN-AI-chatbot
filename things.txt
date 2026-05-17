@@ -1,0 +1,25 @@
+1. change name to ACADEMIC QUERY
+2. it should save chat history  
+4. it should remeber what was asked earlier
+5. many more 
+6. when someone ask for courses ask the person for level and be sure you know their department
+the chat bot is meant to learn how to answer questions of that type and it must be able to answer the question mak e it better
+
+the chat bot is meant to learn how to answer questions of that type and it must be able to answer the question make it better
+can i integrate LSTM or a model
+
+
+1. if the person is not in any of the department then prompt what department are you from also if the department is not part of the department the study is working on tell the user that the department does not exist in the scope yet
+2. sincce u already know the dapartment you should not ask this question again We have three main departments: Computer Science (CMP/CSC/COS), Cyber Security (CYB), and Information Technology (IFT). Which one are you in?
+3. each level has their own elective course and ensure you fetch elective course only based on the level Here are some electives you can take:
+- CSC477: COMPUTER GRAPHICS
+- CSC474: EXPERT SYSTEMS
+- CSC462: COMPUTER SYSTEM PERFORMANCE EVALUATION
+- CSC411: MOBILE APPLICATION DEVELOPMENT
+- CSC432: DISTRIBUTED COMPUTING dont always show this 
+4. tell me what you can do, prompt like this should be able for you to explain what the chatbob does and the scope of the chat bot and the type of question you can answer
+
+
+can we recrawl the extracted_data again to see if we will get something better lets delete the ols one and put the new extracted and lets extract it in a better way also 
+for a question like this How do I know if I am meeting my graduation requirements? I don't have information for the 'meeting my graduation requirements'  is out of scope for ACADEMIC QUERY. 
+GPA is calculated by multiplying each course's grade point by its credit units, summing all values, and dividing by total credit units attempted. Grade points typically range from 0 (F) to 4.0 (A). it is 5.0 Oh

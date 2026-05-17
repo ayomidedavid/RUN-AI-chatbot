@@ -1,0 +1,190 @@
+/* Modern Premium Styles for ACADEMIC QUERY */
+:root {
+    --bg-color: #05070a;
+    --surface: rgba(255, 255, 255, 0.03);
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --accent: #8b5cf6;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] {
+    --bg-color: #f6f8fc;
+    --surface: rgba(15, 23, 42, 0.04);
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --accent: #0f172a;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --border: rgba(15, 23, 42, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.92);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(14px);
+}
+
+[data-theme="light"] nav {
+    background: rgba(246, 248, 252, 0.92);
+}
+
+.nav-logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.nav-links a.active {
+    color: var(--text-main);
+}
+
+@media (max-width: 768px) {
+    nav {
+        gap: 14px;
+        padding: 14px 4%;
+        align-items: flex-start;
+    }
+
+    .nav-logo {
+        font-size: 1rem;
+        max-width: 150px;
+        line-height: 1.2;
+    }
+
+    .nav-links {
+        justify-content: flex-end;
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .nav-links a,
+    .theme-toggle-btn {
+        font-size: 0.78rem;
+    }
+}
+
+[data-theme="light"] .nav-links a:hover {
+    color: #0f172a;
+}
+
+/* Border Light Effect for Search Container */
+.glow-effect {
+    position: relative;
+    z-index: 1;
+}
+
+.glow-effect::before {
+    content: '';
+    position: absolute;
+    inset: -1.5px; /* Thin border peek-out */
+    padding: 1.5px; /* Border thickness */
+    border-radius: 24px;
+    background: linear-gradient(90deg, 
+        rgba(255, 120, 40, 0) 0%, 
+        rgba(255, 120, 40, 1) 25%, 
+        rgba(255, 120, 40, 0) 50%,
+        rgba(59, 130, 246, 0) 50%,
+        rgba(59, 130, 246, 1) 75%,
+        rgba(59, 130, 246, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: flowLight 4s linear infinite;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
+    transition: all 0.5s ease;
+}
+
+.theme-toggle-btn.glow-effect::before {
+    border-radius: 999px;
+}
+
+@keyframes flowLight {
+    0% { background-position: 100% 0%; }
+    100% { background-position: -100% 0%; }
+}
+
+/* Loading/Active State — faster border sweep */
+.loading-glow::before {
+    animation: flowLight 2s linear infinite;
+}
+
+/* Entrance Animations */
+.entrance-anim {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Typography Overrides */
+strong { color: var(--text-main); }
+ul { list-style-type: none; }
+li { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; }
+li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.msg-bubble {
+    animation: fadeIn 0.4s ease forwards;
+}

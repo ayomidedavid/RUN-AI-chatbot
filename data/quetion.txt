@@ -1,0 +1,32 @@
+
+1. What courses should I register for this semester? 
+2. How many courses or units am I allowed to take per semester? 
+3. Can I take extra courses beyond the required load? 
+4. What are the compulsory courses for my level? 
+5. What are the prerequisites for this course? 
+6. Can I register for a course if I failed its prerequisite? 
+7. What happens if I skip a required course? 
+8. What elective courses are available in my department? 
+9. Which electives are best for a career in cybersecurity, software engineering, or data 
+science? 
+10. How do I choose the right electives for my career goals? 
+11. How can I plan my courses to graduate on time? 
+12. How do I know if I am meeting my graduation requirements? 
+13. What is the minimum number of units required to graduate? 
+14. How is GPA calculated? 
+15. What is the minimum GPA I need to stay in the program? 
+16. What happens if my GPA falls below the required level? 
+17. Can I add or drop a course after registration? 
+18. What should I do if there is a clash in my timetable? 
+19. Can I retake a course I failed, and how does it affect my GPA?
+20. Which courses are most 
+important for my chosen career path? 
+
+1. What is the maximum unit I can register this semester 
+2. I want to be a <Career Path>, what electives should I register? 
+3. What is the total number of units I should have registered and passed to graduate 
+4. What is the total number of units I should have registered and passed as a direct entry 
+student to graduate. 
+5. I am not very good at programming, what elective do you think I should register as a 
+200 level cybersecurity. 
+6. If I score a total of 40 marks in test and exams, what grade would I have. 

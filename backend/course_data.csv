@@ -1,0 +1,259 @@
+Course Code,Course Title,Units,Status,Department,Level,Semester
+CSC 101,Introduction to Computer Science,3,C,Computer Science,100,FIRST
+GIT 101,Certified Secured Computer User I & II,0,C,IT General,100,FIRST
+GST 101,Use of English I,2,C,General Studies,100,FIRST
+GST 103,Nigerian Peoples and Culture,2,C,General Studies,100,FIRST
+GST 105,Introduction to Philosophy and Logic,2,C,General Studies,100,FIRST
+GST 109,A Study in Leadership I,1,C,General Studies,100,FIRST
+MAT 101,Elementary Mathematics I,3,C,Mathematics,100,FIRST
+PHY 101,General Physics I,3,C,Physics,100,FIRST
+PHY 103,Experimental Physics I,1,C,Physics,100,FIRST
+BIO 101,General Biology I,3,E,Biology,100,FIRST
+BIO 107,Practical Biology I,1,E,Biology,100,FIRST
+CHE 101,Physical Chemistry I,3,E,Chemistry,100,FIRST
+CHE 191,Experimental Chemistry,1,E,Chemistry,100,FIRST
+CSC 102,Introduction to Programming,3,C,Computer Science,100,SECOND
+CSC 104,Computer System Design,3,C,Computer Science,100,SECOND
+GIT 102,Certified Secured Computer User I & II,0,C,IT General,100,SECOND
+GST 102,Use of English II,2,C,General Studies,100,SECOND
+GST 104,Introductory Health Study,2,C,General Studies,100,SECOND
+GST 110,A Study in Leadership II,1,C,General Studies,100,SECOND
+INS 102,Introduction to Information Systems,2,C,Information Systems,100,SECOND
+MAT 102,Elementary Mathematics II,3,C,Mathematics,100,SECOND
+PHY 102,General Physics II,3,C,Physics,100,SECOND
+PHY 104,Experimental Physics II,1,C,Physics,100,SECOND
+CYB 102,Fundamentals of Cyber Security I,2,E,Cyber Security,100,SECOND
+SEN 104,Introduction to Web Technologies,2,E,Software Engineering,100,SECOND
+CSC 211,Computer Programming,3,C,Computer Science,200,FIRST
+CSC 227,Computer Networks,2,C,Computer Science,200,FIRST
+GIT 203,Oracle Database 11g: SQL Fundamental I & II,0,C,IT General,200,FIRST
+GST 201,Entrepreneurial Skill Development I,2,C,General Studies,200,FIRST
+GST 209,A Study in Leadership III,1,C,General Studies,200,FIRST
+IFT 201,Introduction to Web Computing,3,C,Information Technology,200,FIRST
+IFT 203,Fundamentals of Information Technology,2,C,Information Technology,200,FIRST
+IFT 205,Information Technology in Business,2,C,Information Technology,200,FIRST
+SEN 201,Introduction to Software Engineering,3,C,Software Engineering,200,FIRST
+CYB 203,Cyber Security in Business and Industries,2,E,Cyber Security,200,FIRST
+INS 207,Management Information Systems 1,2,E,Information Systems,200,FIRST
+CSC 212,Object-oriented Programming,3,C,Computer Science,200,SECOND
+CSC 242,Discrete Structures,2,C,Computer Science,200,SECOND
+CSC 254,Data Structure and Algorithms,2,C,Computer Science,200,SECOND
+CYB 202,Network Administration,2,C,Cyber Security,200,SECOND
+GIT 204,Oracle Database 11g: SQL Fundamental I & II,0,C,IT General,200,SECOND
+GST 202,Entrepreneurial Skill Development II,2,C,General Studies,200,SECOND
+GST 210,A Study in Leadership IV,1,C,General Studies,200,SECOND
+MAT 204,Linear Algebra,3,C,Mathematics,200,SECOND
+STA 202,Statistics for Physical Sciences & Engineering,3,C,Other,200,SECOND
+ECO 202,Principles of Economics,3,E,Other,200,SECOND
+IFT 204,Information Theory and Coding,2,E,Information Technology,200,SECOND
+IFT 254,Information Defence Technologies,2,E,Information Technology,200,SECOND
+SEN 206,Software Construction,2,E,Software Engineering,200,SECOND
+CYB 309,System Security,2,C,Cyber Security,300,FIRST
+CSC 343,Database Systems I,3,C,Computer Science,300,FIRST
+CSC 345,Computer Architecture & Organization I,3,C,Computer Science,300,FIRST
+CSC 347,Data Communications,3,C,Computer Science,300,FIRST
+GIT 303,Java Object-Oriented Programming Language,0,C,IT General,300,FIRST
+GST 309,A Study in Leadership V,1,C,General Studies,300,FIRST
+IFT 301,Data Analysis,2,C,Information Technology,300,FIRST
+IFT 303,Mobile and Pervasive Computing,2,C,Information Technology,300,FIRST
+CSC 305,Multimedia,2,E,Computer Science,300,FIRST
+CYB 301,Software Defined Networks,2,E,Cyber Security,300,FIRST
+IFT 349,Network Servers and Infrastructures,2,E,Information Technology,300,FIRST
+CSC 312,Web Design,3,C,Computer Science,300,SECOND
+CSC 320,System Analysis and Design,2,C,Computer Science,300,SECOND
+CSC 326,Introduction to Internet Technology,2,C,Computer Science,300,SECOND
+GIT 304,Java Object-Oriented Programming Language,0,C,IT General,300,SECOND
+IFT 322,Web Server Administration,2,C,Information Technology,300,SECOND
+IFT 398,SIWES,6,C,Information Technology,300,SECOND
+IFT 352,Database Programming,2,E,Information Technology,300,SECOND
+INS 306,Enterprise Architecture,2,E,Information Systems,300,SECOND
+CSC 411,Mobile Application Development,3,C,Computer Science,400,FIRST
+CSC 461,Foundations of Human-Computer Interaction,2,C,Computer Science,400,FIRST
+GIT 403,Cisco Certified Networking Associate® CCNA: LCND I & II,0,C,IT General,400,FIRST
+IFT 401,IT Project Development & Management,2,C,Information Technology,400,FIRST
+IFT 405,Research Methodology in Information Technology,2,C,Information Technology,400,FIRST
+IFT 407,"Professional Ethics, Legal and Social Issues in Information Technology",2,C,Information Technology,400,FIRST
+IFT 409,Integrative Programming and Technologies,2,C,Information Technology,400,FIRST
+IFT 473,Selected Topics in Information Technology,2,C,Information Technology,400,FIRST
+GIT 404,Cisco Certified Networking Associate® CCNA: LCND I & II,0,C,IT General,400,SECOND
+CSC101,Introduction to Computer Science,3,C,Computer Science,100,FIRST
+GIT113,Introduction to Python Programming,0,C,IT General,100,FIRST
+GST101,Use of English I,2,C,General Studies,100,FIRST
+GST103,Nigerian Peoples and Culture,2,C,General Studies,100,FIRST
+GST105,Introduction to Philosophy and Logic,2,C,General Studies,100,FIRST
+GST109,A Study in Leadership I,1,C,General Studies,100,FIRST
+MTH101,Elementary Mathematics I,3,C,Other,100,FIRST
+PHY101,General Physics I,3,C,Physics,100,FIRST
+PHY103,Experimental Physics I,1,C,Physics,100,FIRST
+CHM101,Physical Chemistry I,3,C,Other,100,FIRST
+CHM191,Experimental Chemistry I,1,C,Other,100,FIRST
+STA115,Descriptive Statistics,3,E,Other,100,FIRST
+BIO101,General Biology I,3,E,Biology,100,FIRST
+CSC102,Introduction to Programming,3,C,Computer Science,100,SECOND
+CSC104,Computer System Design,3,C,Computer Science,100,SECOND
+GIT104,"Programming in HTML5 with JS, CSS & Bootstrap",0,C,IT General,100,SECOND
+GST102,Use of English II,2,C,General Studies,100,SECOND
+GST104,Introductory Health Study,2,C,General Studies,100,SECOND
+GST110,A Study in Leadership II,1,C,General Studies,100,SECOND
+MTH102,Elementary Mathematics II,3,C,Other,100,SECOND
+MTH104,Introductory Applied Mathematics,2,C,Other,100,SECOND
+PHY102,General Physics II,3,C,Physics,100,SECOND
+PHY104,Experimental Physics II,1,C,Physics,100,SECOND
+CYB102,Fundamentals of Cyber Security I,2,E,Cyber Security,100,SECOND
+IFT102,Introduction to Web Technologies,2,E,Information Technology,100,SECOND
+IFS102,Introduction to Information Systems,2,E,Other,100,SECOND
+STA112,Probability I,3,E,Other,100,SECOND
+CSC211,Computer Programming,3,C,Computer Science,200,FIRST
+CSC221,Machine and Assembly Language Programming,2,C,Computer Science,200,FIRST
+CSC227,Computer Networks,2,C,Computer Science,200,FIRST
+CSC241,Operating System I,2,C,Computer Science,200,FIRST
+GIT213,Introduction to Machine Learning 1&2,0,C,IT General,200,FIRST
+GST201,Entrepreneurial Skill Development I,2,C,General Studies,200,FIRST
+GST209,A Study in Leadership III,1,C,General Studies,200,FIRST
+MTH201,Mathematical Methods,3,C,Other,200,FIRST
+SEN201,Introduction to Software Engineering,2,C,Software Engineering,200,FIRST
+CSC215,Basic Application Software Packages,2,E,Computer Science,200,FIRST
+IFS207,Management Information System I,2,E,Other,200,FIRST
+MTH203,"Sets, Logic and Algebra",3,E,Other,200,FIRST
+PHY205,Applied Electricity,2,E,Physics,200,FIRST
+STA211,Probability II,2,E,Other,200,FIRST
+CSC212,Object-oriented Programming,3,C,Computer Science,200,SECOND
+CSC218,Foundations of Sequential Programming,2,C,Computer Science,200,SECOND
+CSC222,Computer Hardware & Logic Design,3,C,Computer Science,200,SECOND
+CSC242,Discrete Structures,2,C,Computer Science,200,SECOND
+CSC254,Data Structure & Algorithms,2,C,Computer Science,200,SECOND
+GIT204,AngularJs & Nodejs,0,C,IT General,200,SECOND
+GST202,Entrepreneurial Skill Development II,2,C,General Studies,200,SECOND
+GST210,A Study in Leadership IV,1,C,General Studies,200,SECOND
+MTH204,Linear Algebra,3,C,Other,200,SECOND
+STA202,Statistics for Physical Sciences & Engineering,3,E,Other,200,SECOND
+CSC252,Parallelism Fundamentals,2,E,Computer Science,200,SECOND
+IFT204,Information Theory and Coding,2,E,Information Technology,200,SECOND
+IFS208,Management Information System II,3,E,Other,200,SECOND
+MTH212,Numerical Computation Techniques,2,E,Other,200,SECOND
+SEN206,Software Construction,2,E,Software Engineering,200,SECOND
+CSC 301,Structured Programming,3,C,Computer Science,300,FIRST
+CSC 323,Computational Science & Numerical Methods,2,C,Computer Science,300,FIRST
+CSC 331,Foundation Concepts in Information Assurance & Security,2,C,Computer Science,300,FIRST
+CSC 343,Database Systems I,3,C,Computer Science,300,FIRST
+CSC 345,Computer Architecture and Organization I,2,C,Computer Science,300,FIRST
+CSC 347,Data Communications,3,C,Computer Science,300,FIRST
+GIT 313,Cisco Certified Network Associate (CCNA),0,C,IT General,300,FIRST
+GST 309,A Study in Leadership V,1,C,General Studies,300,FIRST
+CSC 305,Multimedia,2,E,Computer Science,300,FIRST
+MTH 317,Introduction to Operations Research,3,E,Other,300,FIRST
+STA 317,Statistical Quality Control,3,E,Other,300,FIRST
+CSC 312,Web Design,3,C,Computer Science,300,SECOND
+CSC 320,System Analysis and Design,2,C,Computer Science,300,SECOND
+CSC 332,Survey of Programming Languages,2,C,Computer Science,300,SECOND
+CSC 398,Students Industrial Work Experience Scheme,6,C,Computer Science,300,SECOND
+GIT 304,"Laravel Framework, React JS & SQL Database",0,C,IT General,300,SECOND
+CSC 316,Program Development Methods,2,E,Computer Science,300,SECOND
+CSC 324,Computer Architecture and Organization II,2,E,Computer Science,300,SECOND
+CSC 326,Introduction to the Internet,2,E,Computer Science,300,SECOND
+CYB 318,Network Security Issues,2,E,Cyber Security,300,SECOND
+CSC 401,Organization of Programming Languages,2,C,Computer Science,400,FIRST
+CSC 405,Research Methodology in Computer,2,C,Computer Science,400,FIRST
+CSC 421,Net-centric Computing,2,C,Computer Science,400,FIRST
+CSC 445,Artificial Intelligence,2,C,Computer Science,400,FIRST
+CSC 461,Foundations of Human-Computer,2,C,Computer Science,400,FIRST
+CSC 473,Selected Topics in Computer Science,2,C,Computer Science,400,FIRST
+CSC 475,Automata Theory and Computability,2,C,Computer Science,400,FIRST
+IFT 407,Professional Ethics & Legal Issues in IT,2,C,Information Technology,400,FIRST
+GIT 413,Machine Learning With R,0,C,IT General,400,FIRST
+CSC 411,Mobile Application Development,3,E,Computer Science,400,FIRST
+CSC 435,"Parallel Algorithms, Coordination and",2,E,Computer Science,400,FIRST
+CSC 451,Operating Systems II,2,E,Computer Science,400,FIRST
+CSC 453,Database Systems II,2,E,Computer Science,400,FIRST
+CSC 477,Computer Graphics,2,E,Computer Science,400,FIRST
+CSC 452,Design and Analysis of Algorithms,3,C,Computer Science,400,SECOND
+CSC 472,Modelling and Simulation,2,C,Computer Science,400,SECOND
+CSC 478,Compiler Construction,3,C,Computer Science,400,SECOND
+CSC 498,Final Year Project,6,C,Computer Science,400,SECOND
+GST 310,A Study in Leadership VI,1,C,General Studies,400,SECOND
+GIT 414,Machine Learning With R,0,C,IT General,400,SECOND
+CSC 414,Software Studio,3,E,Computer Science,400,SECOND
+CSC 432,Distributed Computing System,2,E,Computer Science,400,SECOND
+CSC 456,Project Management,2,E,Computer Science,400,SECOND
+CSC 462,Computer System Performance Evaluation,2,E,Computer Science,400,SECOND
+CSC 474,Expert Systems,2,E,Computer Science,400,SECOND
+CSC 101,Introduction to Computer Science,2,C,Computer Science,400,SECOND
+GST 101,Use of English I,2,C,General Studies,400,SECOND
+GST 103,Nigerian Peoples and Culture,2,C,General Studies,400,SECOND
+GST 105,Introduction to Philosophy and Logic,2,C,General Studies,400,SECOND
+GST 109,A Study in Leadership I,2,C,General Studies,400,SECOND
+GIT 101,Certified Secured Computer User I & II,2,C,IT General,400,SECOND
+MAT 101,Elementary Mathematics I,2,C,Mathematics,400,SECOND
+PHY 101,General Physics I,2,C,Physics,400,SECOND
+PHY 103,Experimental Physics I,2,C,Physics,400,SECOND
+BIO 107,Practical Biology I,2,E,Biology,400,SECOND
+BIO 101,General Biology I,2,E,Biology,400,SECOND
+CHE 191,Experimental Chemistry,2,E,Chemistry,400,SECOND
+CHE 101,Physical Chemistry I,2,E,Chemistry,400,SECOND
+CSC 102,Introduction to Programming,2,C,Computer Science,400,SECOND
+CYB 102,Fundamentals of Cyber Security I,2,C,Cyber Security,400,SECOND
+GIT 102,Certified Secured Computer User I & II,2,C,IT General,400,SECOND
+GST 102,Use of English II,2,C,General Studies,400,SECOND
+GST 104,Introductory Health Study,2,C,General Studies,400,SECOND
+GST 110,A Study in Leadership II,2,C,General Studies,400,SECOND
+MAT 102,Elementary Mathematics II,2,C,Mathematics,400,SECOND
+PHY 102,General Physics II,2,C,Physics,400,SECOND
+PHY 104,Experimental Physics I,2,C,Physics,400,SECOND
+SEN 104,Introduction to Web Technologies,2,E,Software Engineering,400,SECOND
+CSC 104,Computer System Design,2,E,Computer Science,400,SECOND
+INS 102,Introduction to Information Systems,2,E,Information Systems,400,SECOND
+CYB 201,Fundamentals of Cyber Security II,2,C,Cyber Security,400,SECOND
+CYB 203,Cyber Security in Business and Industry,2,C,Cyber Security,400,SECOND
+CYB 205,Introduction to Digital Forensics,2,C,Cyber Security,400,SECOND
+GIT 203,Oracle Database 11g: SQL Fundamental I & II,2,C,IT General,400,SECOND
+GST 201,Entrepreneurship Skill Development I,2,C,General Studies,400,SECOND
+GST 209,A Study in Leadership III,1,C,General Studies,400,SECOND
+MAT 201,Mathematical Methods,2,C,Mathematics,400,SECOND
+SEN 201,Introduction to Software Engineering,2,C,Software Engineering,400,SECOND
+IFT 203,Fundamentals of Information Technology,2,C,Information Technology,400,SECOND
+INS 207,Management Information Systems I,2,E,Information Systems,400,SECOND
+CSC 202,Object-oriented Programming,2,C,Computer Science,400,SECOND
+CSC 210,Data Structures and Algorithm,2,C,Computer Science,400,SECOND
+CYB 202,System and Network Administration,2,C,Cyber Security,400,SECOND
+CYB 206,Enterprise and Perimeter Security,2,C,Cyber Security,400,SECOND
+CYB 208,Information Security Policy,2,C,Cyber Security,400,SECOND
+GIT 204,Oracle Database 11g: SQL Fundamental I & II,2,C,IT General,400,SECOND
+GST 202,Entrepreneurship Skill Development II,2,C,General Studies,400,SECOND
+GST 210,A Study in Leadership IV,1,C,General Studies,400,SECOND
+STA 202,Statistics for Science and Engineering,2,C,Other,400,SECOND
+CSC 222,Computer Hardware and Logic Design,2,E,Computer Science,400,SECOND
+INS 208,Management Information Systems II,2,E,Information Systems,400,SECOND
+CSC 305,Database System I,2,C,Computer Science,400,SECOND
+CSC 311,Computer Architecture and Organization I,2,C,Computer Science,400,SECOND
+CYB 301,Software Defined Networks,2,C,Cyber Security,400,SECOND
+CYB 303,Cryptographic Techniques,2,C,Cyber Security,400,SECOND
+CYB 307,Information Security Engineering,2,C,Cyber Security,400,SECOND
+GIT 303,Java Object-Oriented Programming Language,2,C,IT General,400,SECOND
+GST 309,A Study in Leadership V,1,C,General Studies,400,SECOND
+MAT 317,Introduction to Operations Research,2,C,Mathematics,400,SECOND
+SEN 301,Object-Oriented Analysis and Design,2,E,Software Engineering,400,SECOND
+STA 301,Statistical Quality Control,2,E,Other,400,SECOND
+CSC 320,System Analysis and Design,2,C,Computer Science,400,SECOND
+CSC 326,Introduction to the Internet,2,C,Computer Science,400,SECOND
+CYB 302,Biometrics Security,2,C,Cyber Security,400,SECOND
+CYB 398,Students’ Industrial Work Experience (SIWES),6,C,Cyber Security,400,SECOND
+GIT 304,Java Object-Oriented Programming Language,2,C,IT General,400,SECOND
+CSC 312,Java Object-Oriented Programming Language,2,E,Computer Science,400,SECOND
+CSC 316,Introduction to the Internet,2,E,Computer Science,400,SECOND
+CSC 445,Artificial Intelligence,2,C,Computer Science,400,SECOND
+CYB 403,Systems Vulnerability Assessment and Testing,2,C,Cyber Security,400,SECOND
+CYB 405,Research Methodology in Cyber Security,2,C,Cyber Security,400,SECOND
+CYB 407,Information Disaster Recovery,2,C,Cyber Security,400,SECOND
+CYB 409,VoIP and Multimedia Security,2,C,Cyber Security,400,SECOND
+CYB 473,Selected Topics in Cyber Security,2,C,Cyber Security,400,SECOND
+GIT 403,Cisco Certified Networking Associate CCNA: LCND I & II,2,C,IT General,400,SECOND
+IFT 407,Professional Ethics and Legal Issues in IT,2,C,Information Technology,400,SECOND
+CSC 461,Foundations of Human Computer Interaction,2,E,Computer Science,400,SECOND
+CYB 309,Systems Security,2,E,Cyber Security,400,SECOND
+CYB 417,"Threats, Exploits and Countermeasures",2,E,Cyber Security,400,SECOND
+CSC 452,Design and Analysis of Algorithms,2,C,Computer Science,400,SECOND
+CYB 402,Cloud Computing Security,2,C,Cyber Security,400,SECOND
+CYB 404,Cryptography: Algorithms and Applications,2,C,Cyber Security,400,SECOND
+CYB 410,Ethical Hacking and Reverse Engineering,2,C,Cyber Security,400,SECOND
+CYB 498,Final Year Project in Cyber Security,6,C,Cyber Security,400,SECOND
+GIT 404,Cisco Certified Networking Associate CCNA: LCND I & II,2,C,IT General,400,SECOND

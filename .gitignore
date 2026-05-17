@@ -1,0 +1,40 @@
+# Python virtual environment
+venv/
+.venv/
+env/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Databases and system logs
+academic_chatbot.db
+chatbot.log
+*.db
+*.log
+
+# Machine learning model artifacts (built locally)
+backend/faiss_index/
+faiss_index/
+chunks.pkl
+intent_model.pkl
+models/
+backend/faiss.index
+faiss.index
+
+# Tesseract OCR language training data
+backend/tessdata/
+tessdata/
+*.traineddata
+
+# Heavy raw datasets and student handbooks
+*.pdf
+*.doc
+*.docx
+
+# Credentials and config
+.env
+.idea/
+.vscode/

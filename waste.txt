@@ -1,0 +1,1898 @@
+technologies. Covers Direct Attached Storage (DAS), networked
+storage models such as Network Attached Storage (NAS), Storage
+Area Network (SAN), and Content Addressed Storage (CAS); and
+applications in business continuity, replication, disaster recovery,
+
+and cloud computing. Includes exposure to real-world storage
+networking technologies.
+
+IFT 498 — FINAL YEAR STUDENT’S PROJECT (6
+UNITS)
+
+An independent or group investigation of appropriate software,
+hardware, communication and networks or information technology
+related problems in information technology be carried out under the
+supervision of a lecturer. Before registering, the student must submit
+a written proposal to the supervisor to review. The proposal should
+give a brief outline of the project, estimated schedule of completion,
+
+and computer resources needed. A formal written report is essential
+
+and an oral presentation may also be required
+
+47
+
+
+ATION SECURITY (2
+
+IFT 432 - DATA AND APPLIC
+
+UNITS) '
+Introduces concept Of data and application s_ecunty. Discuss
+challenges of database, and application and industrial control system
+
+security-
+[FT 435 - NETWORK ADMlNlSTRATlON 2 UNITS)
+nfrastructures
+
+As organizations grow and merge their information i
+
+expand and demand both larger scale solutions to some of those
+problems as well as different approaches 10 various processes- This
+course will examine the issues surrounding several of these areas in
+lecture and representative solutions in lab. The topics will include
+selections from: storage authentication, enterprise administration,
+clustering & load balancing, thin client support, fault tolerant/high
+availability services and policies and procedures.
+
+IFT 442 - WIRELESS COMMUNICATIONS AND
+NETWORKING (2 UNITS)
+
+Covers fundamental  principles underlying  wireless data
+oommun{cations. Topics include wireless transmission basics, radio
+propagation issues, antennas, digital modulation, spread spectrum
+teghmques and their applications, and popular standards: WiFi,
+\l:lh,:lA)’( and Bl.uetooth. Also presents practical knowledge to enable
+WeiF‘es:ﬁl'l, testing, deployment, debugging and commissioning of
+b i, W iMAX networks and point-to-point microwave systems.
+iscussions on cellular network technologies are also included.
+
+IFT 451 - INFORM
+ATION STORAGE AND
+MANAGEMENT TECHNOLOGIES (2 UNITS)
+
+Provi i i i
+ma::;zsman introduction to principles of information storage and
+ent including the emerging field of virtualization
+
+46
+
+
+approaches, standards, and best practices; testing and quality
+assurance.
+
+IFT 412 — SPECIAL TOPICS IN INFORMATION
+TECHNOLOGY (2 UNITS)
+
+Recent topics and developments in information technology are
+expected to be introduced from year to year. Apart from seminars to
+be delivered by lecturers or guests, students are expected to do
+substantial readings on their own.
+
+IFT 422 - WEB DEVELOPMENT USING CONTENT
+MANAGEMENT SYSTEMS (3 UNITS)
+
+Through lectures and hands-on lab experience, presents web
+development techniques using content management systems (e.g.
+Joomla, Dot net nuke). Introduces characteristics of various types of
+websites  (corporate portals. intranets and extranets; online
+magazines, Newspapers, and publications; e-commerce and online
+reservations, government applications, small business websites).
+Presents methods, languages, tools related to web content
+management systems from an applied perspective.
+
+[rFT 431-DATABASE ADMINISTRATION (2 UNITS) |
+
+D advanced concepts of database adminisu.atimf using
+i ase management system. Topics include:
+
+terprise-level datab: i
+
+;r;cl:t‘:p recovery, corruption, automatic management, resource
+managémem, job scheduling, space mimagemem, mmc.l?;y
+management, storage management, diagnosis and corresponding
+
+tools.
+
+45
+
+
+information technology on society, online communities and social
+implications, philosophical context, diversity issues, gender related
+issues, cultural issues, accessibility issues, globalisation issues,
+economic issues in computing, and digital divide; intellectual
+property — foundations of intellectual property, ownership of
+information, plagiarism, software piracy, fair use, digital millennium
+copyright act, copyrights, patents, trademarks and trade secrets,
+international differences; legal issues in computing; organisational
+context; professional and ethical issues and responsibilities —
+relationships with professional societies. codes of professional
+conduct, ethics and history of ethics, whistle-blowing, workplace
+issues (harassment, discrimination), identify theft, ethical hacking;
+privacy and civil liberties.
+
+IFT 409 — INTEGRATIVE PROGRAMMING AND
+TECHNOLOGIES (2 UNITS)
+ole of scripting languages,
+
+Scripting techniques — scripting and the © ang
+creating and executing scripts, and influence of scripting on
+
+programming; integrative coding — design patterns, interfaces, apd
+dence—based security
+
+inheritance; software security practices — evil
+versus code access security, authentication to system resources and
+
+services, and encryption of data between systems and sewiges; data
+mapping and exchange; intersystem communications — archftectures
+for integrating systems, DCOM, CORBA, RMIL, web services and
+
+middleware.
+
+IFT 410 — SYSTEM INTEGRATION AND
+ARCHITECTURE (2 UNITS)
+
+System architecture, testing, evaluation and benchmarking, contracts
+and RFPs, and quality; system integration and deployment, system
+release: pilot and acceptance testing and defect repair, system
+
+support strategies and user support plans, and enterprise integration
+
+44
+
+
+IFT 405 — RESEARCH METHODOLOGY IN IT (2
+UNITS)
+
+Foundations of research; problem identification and formulation;
+research design; qualitative and quantitative research; measurement;
+sampling; data analysis; interpretation of data and technical report
+writing; use of encyclopaedias, research guides, handbook etc.,
+academic databases for computing discipline; use of tools/techniques
+for research: reference management software, software for detection
+of plagiarism.
+
+IFT 406 - SYSTEM ADMINISTRATION AND
+MANAGEMENT (3 UNITS)
+
+Content management, content deployment (file system planning and
+structure), server administration and management, uscr and group
+management, backup management, security management, disaster
+recovery, resource management, automation management (automatic
+job scheduling), site management notebooks and documents, system
+support, user support and education; administrative domains — web
+domain, network domain, database domain, operating systems
+domain, and support domain; secure installation; removing
+unnecessary components; file system maintenance (isol_atiqn of
+sensitive data); Uuser restrictions (access and author‘:samns);
+user/group/file management; password standards anfi requirements;
+shutting  down unnecessary/unneeded services; closmg.
+unnecessary/unnccded ports; patch management/software updates;
+
+virtualisation; yulnerability scanning.
+
+JONAL ETHICS, LEGAL AND
+
+- FESSION
+i b NFORMATION TECHNOLOGY
+
+4
+SOCIAL ISSUES IN I
+(2 UNITS)
+
+Professional commuqications; .
+context of computing — socia
+43
+
+teamwork concepts and issues; social
+| informatics, social impact of
+
+ATION TECHNOLO GY PROJECT
+
+ND MANAGEMENT (2 UNITS)
+
+planning, design, selection, and project mz.magement of inforn?atlon
+technology systems- Development of requirements, configuration O
+hardware and software, management of the procurement and
+implememation process, performance requirements, conu_'act
+negotiation, and legal issues within a comprehensive project; project
+monitoring and control, project audits, project closure, peer review,
+stress testing, quality planning, defect estimation and quality
+assurance, information technology project management methods and
+tools. Student will develop a tool-kit for creating a project plan for a
+distributed application, and engage in @ project to improve
+information technology project management capabilities of a
+globally distributed information systems organisation systematically
+
+1= INFORM
+DEVELOPMENT A
+
+IFT 402 — APPLIED NETWORKS AND SECURITY (3
+UNITS)
+
+Th\s_ course introduces the networking and security technologies
+required to build and maintain a home or small-office network.
+Networking topics will include client/server application software
+chngguratlon, net\fvork connectivity (cabling, switch and router
+2 ltliogura:lon), ba_snc IP addressing, network address translation and
+i:clu:i or é):lbhc Internet access services. Security topics will
+passwor;y:;l threats and .responses, firewalls, host hardening,
+s anagement and virtual private networks. The course has
+technologig :::r:llp?nent where.st‘udents apply wired and wireless
+soplloifion: esign and administer a small network with various
+
+42
+
+IFT 349 - NETWORK SERVERS
+INFRASTRUCTURES (2 UNITS)
+
+Covers IP networking concepts and practices for IPv6 addressing,
+DHCP and DNS in IPv6 networks, secure communication over
+VPNs, VolIP architecture, Virtual Computing, Cloud Computing,
+MPLS, traffic monitoring and network connectivity between
+operating systems. Students learn the latest technologies of IP
+networks and understand application level services used in the
+
+Internet. Lab sessions focus on installation of applications on virtual
+Servers.
+
+AND
+
+‘IFT 352 - DATABASE PROGRAMMING (2 UNITS)
+
+The course introduces students to the Oracle Developer application
+development utilities and tools and describes how to create and
+manipulate databases in Oracle database management system. The
+course provides an extensive overview of SQL and introduction to
+PL/SQL. Topics include data definition and manipulation languages,
+stored procedures, triggers, indexing techniques, and elementary
+query optimization.
+
+IRER 398 o5 STUDENTS INDUSTRIAL WORK
+EXPERIENCE SCHEME (SIWES) (6 UNITS)
+
+Students are attached to private and public organisations for a period
+of six months with a view to making them acquire practical
+experience and to the extent possible, develop skil!s_in all areas of
+computing. Students are supervised during the training period am:_
+shall be expected to keep records designed for the purpzse'o
+monitoring their performance. They are also 'expected to submit a
+report on the experience gained and defend their reports.
+
+41
+
+
+physical attacks, cyber terrorism, es
+
+, pionage, psyops, reconnaissan
+and surveillance, L e
+
+| Space assets, and applications of GPS and
+cryptographic technology. Students will research and write about the
+
+social, ethical, and political effects of such technology.
+
+[IFT 301 - DATA ANALYSIS 2 UNITS)
+
+Introduction to the basic concept of probability theory, common
+distribution functions, moments of distribution functions, the
+foundation of statistical analysis, sampling distribution of moments,
+statistical tests and procedures, linear regression and correlation
+analysis, the design of experiments, least squares. Laws of large
+numbers and the central limit theorem, random walk, Markov
+Chains, introduction to Poisson process.
+
+IFT 303 — MOBILE AND PERVASIVE COMPUTING (2
+UNITS)
+
+Definitions and motivations: mobile, pervasive and ubiquit(?us
+computing; physical interaction; theoretical foundations of pervasive
+computing: context-aware interaction, resource and device
+constraints; implementing pervasive systems: Sensor, actuators(i
+embedded systems, applications, programming ‘languagzz ::d
+approaches, device types and choices; _capturmgd n;ea"en .
+requirements for pervasive systems: techniques and ¢ = ut%ng,
+multi-sensory ~communication  USIng ?ewaszjvqts ::rvizes A
+Introduction to cloud computing technologies and 1 :
+practical application of mobile and cloud computing.
+
+IFT 322 WEB SERVER ADMINISTRATION (2 UNITS)
+
+: B T
+Covers the installation, conng;ratlon,rsani dz:grt?:r:;sltrzgzs oinclude
+servers, FTP servers, and DNS servers: 5
+security setups, administration, and associated performan
+
+40
+
+ITE 204
+UNITS)
+
+Entropy: information source and entropy, mutual information,
+information measures for continuous random variables; Source
+coding: the source coding theorem, Kraft inequality, Shannon-Fano
+codes, Huffman codes, Arithmetic Codes, Lempel-Ziv-Welch
+algorithm, universal source codes; channel capacity: channel
+capacity; noisy channel coding theorem for discrete memoryless
+channels; channel capacity with feedback; continuous and Gaussian
+channels; Error control coding: linear block codes and their
+properties, hard-decision decoding, convolution codes and the
+Viterbi decoding algorithm, iterative decoding; turbo codes and low-
+density-parity-check codes; Rate distortion theory: rate distortion
+function, random source codes; joint source-channel coding and the
+separation theorem; Cryptography: basic concepts, security issues;
+
+private-key encryption algorithms.
+
+IFT 205 — INFORMATION TECHNOLOGY IN
+BUSINESS (2 UNITS)
+
+An overview of e-business from design to operations of
+organisations engaging in the fast-paced highly competitive, global
+environment of e-commerce.e-Business, strategic use of information
+technology for competitive advantage, e-business impact on
+organisation, globalisation, and the impact on options created
+through applied information technology.
+
+_ INFORMATION THEORY AND CODING (2
+
+IFT 254 - INFORMATION DEFENCE
+TECHNOLOGIES (2 UNITS)
+
+This course will examine and assess the role of information
+technology as a tool of warfare and civil defense. Topics will be
+discussed from both defensive and offensive perspectives and will
+include asset tracking, asymmetric warfare, network centric warfare,
+
+39
+
+
+8.3 LABORATORY EQUIPMENT
+
+i.  Software Laboratory — At least 100 networked desktop
+computers with direct access to internet.
+
+ii.  Hardware Laboratory — Work-benches (for at least 50
+students) equipped with logic trainers, Tools, Digital
+Oscilloscope, VSAT, Routers and Networking
+Equipment.
+
+iii.  Research Laboratory.
+
+9.0 COURSE CONTENT SPECIFICATION
+
+IFT 201 — INTRODUCTION TO WEB COMPUTING (3
+UNITS)
+
+An introduction to the Internet, the World Wide Web, and web
+development. Students will create interactive web pages by writing
+HTML and CSS and by programming in JavaScript. Topics include
+the origins of the web, the roles and operations of web browsers and
+web servers, interacting with web applications through forms, and
+using style sheets to separate document structure and document
+formatting; introduction to digital media.
+
+IFT 203 —- FUNDAMENTALS OF INFORMATION
+TECHNOLOGY (2 UNITS)
+
+Pervasive themes in information technology; information techno}ogy
+systems model; a gentle introduction to information technologies —
+human—computer interaction, information management; networkmg&
+platform technologies, programming, and web systems an
+technologies; data versus information; history of mfon::tlo:;
+technology and internet; information technology a.nd its related an
+informing disciplines; information technology application domains.
+
+38
+
+8.1 ACADEMIC
+
+S/N DISCIPLINE &
+- RESEARCH AREA S
+Prof. J.O.A. Software Development;
+Ayeni Computer Networks;
+Operations Research
+Techniques
+Artificial Intelligence:
+Data Mining, Machine
+Learning, Intelligent and
+Knowledge Base Systems
+Software Engineering and
+Data Mining
+Computer Science —
+Neural Computing
+Data Communication and
+Networking
+Database Systems, Data
+Warehousing, Data
+Mining, Distributed
+Systems, Recommender
+Systems
+
+DESIGNATION
+
+Professor
+
+Dr. S.O.
+Akinola
+Dr. M.O. Odim
+
+Dr. (Mrs.) B.O.
+Oguntunde
+Dr.(Mrs). LO.
+Awoyelu
+
+‘8.2 ADMINISTRATIVE & TECHNICAL G
+Dr. S.A. Arekete < Ag. Head of Departinons i
+Mrs. O. O. Awolola - Secretary
+Mr. I. S. Oyetade = Senior Technologist
+Mr. N. I. Fagbamigbe - Principal Technical Officer
+Mrs. T Ojewumi - Senior Programmer
+
+Mr. E. O. Adekunle - Senior Lab Attendant
+
+
+LCR.1P
+
+. . X CR
+
+where CR is the credit value (number of units) for each courses
+offered (both passed and failed) and QP is the quality point obtained
+for each course based on the grading system reflected in the table
+above.
+
+The following table summarizes our degree classification in this
+programme:
+
+CGPA =
+
+Second Class (Lower
+
+(150239 |ThirdClass |
+
+1.00-1.49 | Pass
+
+7.3 PROBATION AND WITHDRAWALS
+
+A student shall be placed on probation when the CGPA is below 1.0
+for two consecutive semesters i.e. one academic session. At the end
+of probation year (that is, the following session), a student whose
+CGPA remained below 1.0 will be asked to withdraw from the
+programme. Any student asked to withdraw from a programme shall
+be permitted to transfer to any other programme provided the
+minimum requirements for admission into that programme are met.
+A student can only be permitted once to transfer from one
+programme to another due to poor performance.
+
+36
+
+7.0 REQUIRED NUMBER OF UNITS
+GRADUATION
+
+FOR
+
+Entrant at 100 Level: Minimum of 160 units
+Entrant at 200 Level: Minimum of 120 units
+
+Note: All units passed must include all compulsory units at
+appropriate levels of the programme. However, entrants at 200 level
+must also obtain units in all GST courses at 100 level which they
+have not obtained in this or any approved university in Nigeria.
+
+7.1 COURSE GRADES AND  DE
+CLASSIFICATION 3
+
+In this programme, a 5-point grading system is used and for each
+course, a candidate shall be recorded as having attained an
+assessment grade and corresponding grade points as described
+
+below:
+ST e e
+Points Yo Exams
+
+—a | 5. [70100]Adal g ="
+
+“--ﬂ
+
+““EmﬂMid-Smester Test m]
+[ 40
+60 ]
+[ 100 |
+
+o TmicA__—————
+-g-
+
+72  CALCULATION
+
+POINT AVERAGE (CGF i i e o
+Universitys
+
+as adoptedm::' 'h:“s and credits camed by
+
+This is defined as:
+
+&
+
+The CGPA system,
+consideration all courses mk:néourses
+students including all repeate -
+
+3
+
+6.0 SUMMARY OF COURSE UNITS
+INFORMATION TECHNOLOGY) I
+
+(BSC
+
+Total number of units available = 180
+Total number of compulsory units = 143
+Total number of available elective units = 37
+
+34
+
+
+SECOND SEMESTER 400 LEVEL
+m:m_
+
+Cisco  Certified Networking
+A:LCND1& 1
+
+Associate® CCN
+i
+Development Strategies
+lﬁ!!_
+R
+Management
+vy (e
+Architecturé
+W Management Systems
+Total Compulsory Courses
+’Dam and Application Security
+Wireless Communications and
+Networking
+/Toml Compulsory Courses
+e Courses
+
+Available Electiv
+Total Units Available
+'m Units 0 €8
+cgistrable
+
+s
+
+As
+
+H
+
+‘
+‘
+
+F
+
+-
+11
+
+\\ﬁ
+
+ter
+
+FIRST SEMESTER 400 LEVEL n
+
+-
+Course Code
+CcSC411
+
+I
+
+‘
+
+IFT 405 Research Methodology
+IFT 407
+
+Integrative Programming and
+IFT 43] Database Administration
+
+Course Title Uni —
+: e nits
+Mobile Application Development 3
+2 &
+
+Information Technology
+
+Professional Ethics, Legal and 2 6
+IFT 409
+
+Technologies
+IFT 473 Selected Topics in Information -
+
+Technolog
+
+Network Administration
+Information Storage and
+Management Technologies
+
+CSC 461 Foundations of Human-Computer | 2 C
+Interaction
+Social Issues in Information
+2
+RUN-FIC Faith, Work, Vocation
+401
+
+GIT 403 Cisco Certified Networking C
+Associate® CCNA: LCND [ & 11 -
+[FT 401 IT  Project Development &
+gement
+Technology
+—Total Compulsory Courses -
+
+IFT 451
+
+Total Compulsory Courses
+Available Elective Courses %
+Total Units Available m
+Minimum Units to register m
+Maximum Registrable
+
+32
+
+" Course Code | Course Title
+CSC13 | Web Design
+[CSC 3120 lﬂy«ltm And)\n-\d%;
+
+TOSC 326 len‘hxlun W Internet
++
+
+| Technology
+
+GIT 304 ’
+
+T
+
+[T
+
+[T %2
+
+NS o
+
+Computuary Comrves : 15 units
+Availabic | iective Comrses . A units
+Totel Usnits Avallable - 19 units
+Marimum Regrtrable ; 21 units
+
+
+FIRST SEMESTER 300 LEVEL A e
+
+'
+CSC 343 Database Systems | n
+CSC 345 Computer Architecture & 3 €
+Organization |
+Java Object-Oriented Programming e
+Language
+
+m Mobile and Pervasive Computing n
+
+Network Servers and n n
+Infrastructures : 4 ;
+
+Courses &
+
+;
+
+Compuls,
+
+: ry
+?vallable Elective Courses 5
+
+9| Units Ayaj
+Maximu - yaxlable
+
+|
+
+KN
+7
+
+SECOND SEMESTER 200 LEVEL
+
+e
+w Object-oriented Programming
+m Discrete Structures
+
+E
+E.
+
+Data Structure and Algorithms
+
+¥
+
+CYB 202 Network Administration
+
+GIT 204 Oracle  Database  11g: SQL
+
+Fundamental I & 11
+
+GST 202 Entrepreneurial Skill Development
+11
+
+GST 210 A Study in Leadership IV
+
+MAT 204 Linear Algebra
+
+STA 202 Statistics for Physical Sciences &
+Engineering
+
+ECO 202 Principles of Economics
+
+IFT 204 Information Theory and Codi L
+
+IFT 254 Information Defence Technologies
+
+SEN 206 Software Construction
+
+O
+=
+
+o
+
+iomfulsory Courses - 18 units
+vailable Elective Courses - _9 units
+Total Units Available - 27 units
+Maximum Registrable - 25 units
+
+29 !
+
+®
+
+
+|
+
+FIRST SEMESTER 200 LEVEL P e 2
+
+A Study in Leadership 11
+
+SEN 201 Introduction to Software Engineering
+
+Cyber Security in Business and
+C
+m Management Information Systems |
+
+Compulsory Courses
+Available Elective Courses
+Total Units Available
+Maximum Registrable
+
+g
+
+H.‘
+E
+
+HH
+
+'H
+HH
+
+!H
+
+
+s —
+
+SECOND SEMESTER 100 LEVEL
+
+i et
+m Introductory Health Study
+
+INS 102 Introduction  to
+
+MAT 102
+PHY 102 General Physics IT
+
+PHY 104 Experimental Physics Il
+
+CYB 102
+
+SEN 104
+
+Compulsory Courses
+Available Elective Courses -
+Total Units Available -
+Maximum Registrable =
+
+27
+
+
+[
+
+5.0 CURRICULUM (B.SC =
+o X "ORM
+TECHNOLOGY) ATION
+
+FIRST SEMESTER 100 LEVEL
+
+m Introduction to Computer Science
+GIT 101 fz‘t;‘ﬁed Secured Computer User
+
+Use of English I
+
+m Nigerian Peoples and Culture
+
+Elementary Mathematics 1
+Experimental Physics [
+General Biology |
+Practical Biology !
+
+_CHE 191 Experimental Chemi 2
+= = 7 units
+
+Compulsory Courses i
+
+HE
+
+HH
+H
+
+'H
+HH
+
+HI
+HH
+
+H
+
+—
+
+§ unl§
+Available Elective Courses = 25 units
+Total Units Available g 25 units
+Maximum Registrable i
+
+26
+
+13 LEAVING THE EXAMINATION HALL WITHOU
+PERMISSION OF THE CHIEF INVIGILATOR
+
+Penalty: The student shall be scored zero in the e
+
+24 FAILURE BY A CANDIDATE TO SUBMIT
+ANSWERS SCRIPTS AFTER TAKING PAR
+EXAMINATION,
+
+Penalty: Rustication for 2 semesters
+
+25, IMPROPER BEMAVIOUR IN LABORATORY DU
+EXAMINATIONS :
+
+Any behaviour in the laboratory or workshop during “ :
+mnmw“.ﬁg’mam' =
+safety of others in the laboratory or workshop. .
+
+Pemalty: Dusciplinary measure as recommended by the appr
+
+26 OTHER EXAMINATION MISCONDUCT
+
+Other types of examination misconduct/offences not sp
+listed above but related.
+
+THAT 1S
+IO et Mm(;ﬂm? FACAKAGE 1S AN
+OFFENC
+penalty Expulsion
+o, DISOBEYIN ANY  LAWFUL EXAMINATION
+STRUCTIONS
+
+Any student found disobeying any lawful ex.mni.nati?n .immlctillls
+from examination officials while the examination 15 in progre:
+such as failure {0 stop writing Of writing before the examination
+
+starts has committ an offence.
+
+Penalty: Letter of wamning
+
+A student who had been issued letter of warning for one Semester
+or session on account of examination misconduct(s) and is
+subsequently found guilty of any other offence under examination.
+
+Penalty: Rustication for 1 semester plus the penalty for the
+offence.
+
+21. FALSE MEDICAL CERTIFICATE
+
+Subt'nining a false medical or other certificate(s) or obtaining such
+cemﬁcatsunderfnlsepmmforexnmimﬁmpmpos&isan
+offence.
+
+Penalty: Rustication for 1 semester.
+
+22. SITTING FOR
+
+EXAMINATIO WITHOUT
+QUALIFICATION .
+
+Sitﬁngforanemhmﬁmforwhichnwxdidl&hnol i
+suchwmlneetingthcmmma qml'lﬁed.
+
+Puﬂty:“cmtﬂtofﬂwmmmdummllbembd.
+
+24
+
+
+Penalty: Rustication for a minimum of | semester
+
+14, STEALING QUESTION PAPERS, MARKING SCH
+AND OTHER EXAMINATION MATERIALS
+
+Stealing of question papers, markiFg SChe.me.-M‘j =
+examination materials from a University official is a seri
+offence. R
+Penalty: Expulsion
+
+15. RE-SUBMISSION OF USED MATERIALS
+
+Any student who re-submits a test paper, an essay, a
+assessment for a course after such had already been gr:
+being graded has committed an offence.
+
+Penalty: Letter of warning and award of zero for that
+16. COMING LATE INTO THE EXAMINATION HALL
+
+If a student comes thirty minutes late after the commes
+an examination, he or she has committed an offence.
+
+Penalty: Without genuine reason, the student is not a
+the examination hall, and scored zero in that academic
+the student has genuine reason, he/she is allowed to
+examination at the next available opportunity without
+
+17. AIDING AND ABETTING OTHERS
+
+Any student caught aiding and abetting others to " i
+unauthorized material while examination is in progre
+committed an offence. =3
+
+Penalty: Rustication for 2 semesters
+
+9. FAILURE TO APPEAR BEFORE EXAMINATION
+MISCONDUCT PANEL
+
+A student who fails to appear before the duly constituted
+Examination Malpractice and Irregularities Committee is subject to
+disciplinary measure.
+
+Penalty: Expulsion
+
+10. INFLUENCING INVIGILATORS/EXAMINATION
+OFFICIALS
+
+If a student is found attempting to gain favour by influencing an
+invigilator or examination officials through oral, written or other
+means, the students involved has committed an offence.
+
+Penalty: If backed up with evidence, the student should be
+sanctioned by Disciplinary Committee.
+
+11. CONSULTING RECOMMENDED BOOKS OR LECTURE
+NOTES
+
+Any student caught consulting recommended books or lecture
+notes during examinations, except otherwise directed by the
+Examiner, has committed an offence.
+
+Penalty: Rustication for 2 semesters
+12. UNAUTHORISED CHANGING OF SITTING POSITION
+
+If a student fails to consult the invigilator before changing his/her
+sitting position, such a student has committed an offence.
+
+Penalty: Letter of warning
+
+13. REFUSAL TO COMPLETE EXAMINAT  ION
+MISCONDUCT FORMS
+
+Any student who refuses to complete Misconduct Form has
+committed an offence.
+
+22
+
+< BEING FOUND IN EXAMINATION HALL WITH JOTTED
+NOTES
+
+Any student found with jotted notes, cribs or chips on body, under
+
+the locker or in the vicinity, writing relevant materials on palms
+and other places has committed an offence.
+
+Penalty: Rustication for 2 semesters
+
+6. SOLICITING
+
+FOR THE ASSISTANCE OF FELLOW
+STUDENTS
+
+Any student caught soliciting information or assistance, for
+
+example copying, exchange of answer sheets or question papers in
+the examination hall, has committed an offence.
+
+Pemalty: Rustication for 2 semesters
+
+7. DESTRUCTION OF  EVIDENCE RELATED TO
+EXAMINATION MISCONDUCT
+
+Any student who destroys evidence related to an examination
+misconduct has committed an examination offence
+
+Penalty: Rustication for 2 semesters
+SPYING IN THE EXAMINATION HALL
+
+Any student caught spying the work of another student, or cheating
+on some other student’s paper has committed an offence.
+
+Penalty: Letier of waming for first offender
+
+Persistent offender: more serious men
+unish
+the Disciplinary Committee s 1o be St
+
+
+! IMPERSONATION
+
+{f a student is discovered impersonating or helping another student
+to sit for an examination, both the impersonator and the
+impersonated student shall have committed an offence.
+
+Penalty: Rustication for 2 semesters
+
+. ASSAULT ON INVIGILATORS/EXAMINATION
+ATTENDANT
+
+If a student physically attacks or assaults an invigilator or is
+involved in any unruly behaviour leading to the disruption of an
+examination, such a student has committed an offence.
+
+Penalty: Rustication for 2 semesters and Letter of Apology to
+those concerned
+
+_COMING TO THE EXAMINATION HALL WITH
+PREPARED ANSWERED SHEET/SCRIPT
+
+A student who comes to the examination hall with prepared answer
+scripts written on paper, on the body, clothing, and so on is liable
+to a penalty.
+
+Penalty: Rustication for 2 semesters
+
+. SMUGGLING QUESTION PAPERS ouT OF
+EXAMINATION HALLS
+
+A student caught smuggling question papers out before
+examinations commence or during examinations has committed an
+offence.
+
+Penalty: Rustication for 2 semesters
+
+20
+
+9. Candidates are advised in their own interest to write le
+and avoid using faint ink. Answer must be written in
+except where otherwise instructed.
+
+10. It is compulsory for every candidate to answer each quest
+on a fresh page of the answer booklet.
+
+11. Silence must be observed in the examination hall. °
+permissible way of attracting the attention of the
+by any candidate is by raising his/her hand.
+
+12.1t is the responsibility of each candidate to subm
+scripts before leaving the examination hall. The
+sheets provided for the examination must be duly ¢
+each candidate at the time of submitting the answer
+
+13.1t is in the interest of every candidate to insert
+appropriate places, his/her matriculation numbers
+number of questions answered before the submission.
+
+4.9.3 EXAMINATION OFFENCES AND PENAI
+FOR STUDENTS
+
+_Studer.ns are hereby informed that actions which prej
+integrity and sanctity of the University examinations
+considered punishable by appropriate disciplinary actions.
+
+1t shou!d be noted that the Redeemer's University is commi 0
+promoting discipline and integrity at all times, including in th
+University examination system. Students are, therefore, ch
+read and familiarize themselves with the rules, guidelines, ©
+and penalties as stated below. Full implementation will be
+
+by the authorities of the University fc :
+i ty for any breach of the exz
+
+Below are the examination offence i
+
+1 s and the prescribed :
+After a thorough investigation by the appropriate Commi
+appropriate penalties will be imposed on anyone found guilty.
+
+19
+
+9. Candidates are advised in their own interest to write legibly
+and avoid using faint ink. Answer must be written in English,
+except where otherwise instructed.
+
+10. It is compulsory for every candidate to answer each question
+on a fresh page of the answer booklet.
+
+11. Silence must be observed in the examination hall. The only
+permissible way of attracting the attention of the invigilator
+by any candidate is by raising his/her hand.
+
+12. 1t is the responsibility of each candidate to submit his/her
+scripts before leaving the examination hall. The attendance
+sheets provided for the examination must be duly signed by
+each candidate at the time of submitting the answer script.
+
+13.1t is in the interest of every candidate to insert at the
+appropriate places, his/her matriculation numbers and the
+number of questions answered before the submission.
+
+4.9.3 EXAMINATION OFFENCES AND PENALTIES
+FOR STUDENTS
+
+?luder.\(s are hereby informed that actions which prejudice the
+integrity and sanctity of the University examinations shall be
+considered punishable by appropriate disciplinary actions.
+
+It should be noted that the Redeemer’s University is committed {0
+promoting discipline and integrity at all times, including in the
+University examination system. Students are, therefore, charged t0
+read and familiarize themselves with the rules, guidelines, offences
+and penalties as stated below. Full implementation will be enforced
+
+by the authorities of the University for any breach of the examination
+regulations.
+
+Below are the examination offences and the prescribed penalties.
+After a lhorougl} investigation by the appropriate Committee,
+appropriate penalties will be imposed on anyone found guilty.
+
+19
+
+
+cards by the invigilator. The dressing must be in compliance
+with the approved dress code of the University.
+
+No books or any unauthorized materials including mobile
+phones and digital wristwatches shall be brought into the
+examination halls. Candidates might bring with them only
+authorized materials such as pens, erasers, and any other
+materials which they are specially allowed to bring into the
+examination hall. Programmable calculators and the likes
+might only be brought into the examination halls with the
+special permission of the Chief Invigilator as stated by the
+course examiner.
+
+While examination is in progress, communication, exchange
+of ideas or aiding in whatever form between candidates is
+strictly prohibited. Any candidate found to be giving or
+receiving irregular assistance shall face disciplinary actions.
+
+1t shall be a breach of examination rules for any student to
+
+impersonate a candidate in any University examination.
+
+_ The use of other answer booklets other than those specifically
+
+provided and stamped by the University for each examination
+is unacceptable. The use of scrap papers is not permitted. All
+rough works must be done in the Answer Sheets and crossed
+out neatly. All supplementary answer sheets, including those
+used for rough works must be tied inside the main answer
+booklet.
+
+. No used or unused answer booklet will be allowed to be
+
+taken away by candidates. Tearing of any part of the answer
+booklet is a serious offence.
+
+. Itis in the interest of every student to strictly comply with all
+
+directives given on the question papers, answer booklets and
+other examination materials supplied to them. The directives
+of invigilators must also be adhered to during the
+examination.
+
+18
+
+PR ———
+A
+
+9. Each student must make conscious efforts to attend lecture
+classes, tutorials and practicals in at least §evepty percent
+(70%) of the time to qualify to write examinations in any
+
+course registered for. e
+
+3. Each student must monitor the examination time table and
+ensure that adequate provisions are made for all courses
+registered for.
+
+4. Where there are omissions or clashes, the student concerned
+must promptly draw the attention of his/her Head of
+Department to the same for immediate action.
+
+5. Candidates must process and obtain valid Student Identity
+(ID) Cards before the commencement of the examinations,
+since no student shall be allowed into the examination hall,
+practicals, orals or written, without a valid Student ID card.
+
+6. Once a student has registered for a course and he/she has not
+withdrawn from the course by the middle of the semester,
+he/she is automatically deemed to have registered for the
+course examination.
+
+7. Candidates who fail to present themselves for an examination
+for reasons other than illness, accident or some exceptional
+circumstances, shall be deemed to have failed the course.
+Any student absent on the ground of illness must provide a
+
+medical report certified by the University Director of Health
+Services.
+
+\_4.9.2 CONDUCT DURING EXAMINATION
+
+1. Candidates must attend punctually at the time assigned their
+papers and must be ready to be admitted into the examination
+
+venue not later than fifteen (I15) mi
+inutes
+commencement of the examination. i
+
+2. Student should .dress in such a w.
+ay that thei i
+appearance could be effortlessly matched with th‘::rid:?:t:;:)l!
+
+17
+
+
+————
+
+15 REQUEST FOR REVIEW OF EXAMINATION'S
+RESULTS
+
+|. Examination results shall be released by course examiner(s),
+
+using the matriculation number, the mark scored by the
+
+candidate in each course with the corresponding letter grade.
+
+After Senate approval, the Registrar  shall take the
+
+responsibility of informing students and their sponsors of the
+
+results at the end of every Semester/Session.
+
+3. Sessional results shall normally be released to the students
+before the beginning of the following session, using the
+approved format.
+
+4. All results executively approved by the Vice Chancellor shall
+come before Senate for ratification.
+
+(3]
+
+4.9 EXAMINATION REGULATIONS AND
+DISCIPLINARY ACTIONS 3
+
+Students are hereby informed that actions which prejudice the
+integrity and sanctity of the University examinations shall be
+considered punishable by appropriate disciplinary actions.
+
+It should be noted that the Redeemer's University is committed to
+promoting discipline and integrity at all times, including in the
+University examination system. Students are therefore charged to
+read and familiarize themselves with the rules, guidelines, offences
+and penalties as stated below. Full implementation will be enforced
+by the authorities of the University for any breach of the examination
+regulations.
+
+‘4.9.1 ADMISSION TO EXAMINATION HALL
+
+1. Each student must register for all the approved courses for
+each semester before the deadline prescribed by the Senate of
+the University.
+
+16
+
+Fines for recalled material accumulate at the rate 9f N10.00k per
+effective one week from the date of recall. Fines must
+promptly- Unpaid fines will be referred 10 the Bursar's O
+
+necessary action.
+
+All borrowed items are renewable unless booked by another re
+
+Do not take any library book without going through
+Processes.
+
+4.7.2 SANCTIONS FOR
+INTERPERSON AL RELATIONSH!P AND OTHER
+
+A proven incidence of the following offences shall be
+criminal and shall lead to summary dismissal from the
+Residence, and invariably from the university:
+
+1. Membership of any secret society OF cult.
+
+2. Possession of firearms and/or live bullets, of any
+dangerous weapons like daggers, swords, axe, acid, etc.
+
+3. Possession of hard drug and/or trafficking in hard drugs
+
+4. Sexual assault-including rape or any other form
+immorality.
+
+5. Theft
+
+6. Burglary
+
+7. Fraud
+
+8. Forgery
+
+9. Murder
+
+10. Destruction of university property under any pretense.
+11. Any other offence that could be classified as criminal.
+
+15
+
+L
+
+4.7.1
+UNIVERSITY LIBRARY
+
+Items borrowed must be returned on or before the due date to avoid
+
+R?gister and submit course registration forms within the time
+stipulated by the University authority and must not register
+on behalf of another student;
+
+Be punctual to lectures/practical/tutorials/workshop
+practical/field trips.
+
+. Switch off cell phones in the Library, during lecture hours
+
+(9a.m — 1:00p.m and 2p.m. — Sp.m and any other formal
+lectures including especially, devotion and church activities.)
+Not be involved in any form of examination misconduct
+including impersonation or aiding or abetting others in doing
+S0;
+
+Not offer money, sex, or other enticements in exchange for
+higher grades/alteration of records/documents and must not
+be involved in any form of forgery.
+
+Dress decently and be polite to all staff and the general
+public; e
+
+Not do anything to tarnish the image of the University;
+
+Not deface University properties, buildings through
+placement of posters and handbills;
+
+Not litter University premises with pieces of paper, nylon
+bags, pure water sachets, food packages, etc.,
+
+Not walk on or cross the lawns;
+
+If in doubt, check with the appropriate authprities, especially the
+Director, Directorate of Students' Support Services.
+
+SANCTIONS FOR MISCONDUCT IN THE
+
+fines. Any book recalled must also be promptly returned to avoid
+
+fines.
+
+Overdue books and pamphlets attract fines at the rate of N10.00k per
+
+day.
+
+14
+
+Attendance at Lectures = 5 points/marks o>
+Mid-Semester Test/Assessment - 20 points/marks
+
+Practical sessions/Class test/term  paper/T:
+assignments/Book revievy/Seminar
+prescntation/ group work -15 points/marks
+
+4.7 CODES OF CONDUCT
+
+Al students must:
+
+a. Obey the laws and regulations of the University int
+matriculation oath;
+
+b. Respect the statutory rights of staff and fellow s
+University will not tolerate student behaviour U
+the rights of others including but not limited to ha
+physical abuse, disruption of teaching or official
+
+etc;
+Not be rude to University officials; _
+_ Not engage in unruly behaviour such as hemp sm
+and distribution of drugs or alcohol, drunkenness, |
+sexual harassment; i1
+e. Comply with all rules and regulations guid
+accommodation;
+f Students' demonstration resulting in the destructio
+
+theft of University property and those of other staff’
+be allowed;
+
+g. }lof engage in, or be a member of, or sponsor any
+inside or outside the University;
+l.|. Not obtain accommodation by fraudulent means;
+i N&t sell/lease University hostel accommodat,ion
+other property for unauthorized activities i in
+i e it activities including re
+j. Register for each Semester and
+] have n  th:
+attendance to qualify to write Semester exa?xtlil::isb :
+13
+
+e o
+
+4.5 REGISTRATION OF COURSES
+Normal Registration
+
+Normal registration of courses takes place in the first week of a
+given semester. However, in view of the prevailing circumstances,
+the normal registration for courses shall last for three weeks. Late
+
+registration shall be allowed for two weeks subject to the payment of
+N10.000.00 late registration fees.
+
+Late Registration of Course
+
+Failure to complete the registration within the above-stipulated
+period will be regarded as absence from the university for the
+semester, and the penalty is withdrawal from the university.
+
+Addition and Deletion of Courses
+
+Once a student has registered for a course and he/she has not
+withdrawn from the course by the middle of the semester, he/she is
+automatically deemed to have registered for the course examination.
+
+In that regard, applications for addition or deletion of course(s) on
+the registration portal, that is, after due approval, should be
+submitted not later than two (2) weeks after the close of registration
+period in a semester. Deletion of course(s) will only be allowed not
+more than three (3) weeks to the commencement of the semester
+examinations.
+
+4.6 COURSE EVALUATION
+
+The final mark (100%) for any course shall be a combination of
+Examination Score (60%) and Continuous Assessment Scores
+
+(40%).
+The Continuous Assessment component of student's grading is
+
+distributed as follows:
+12
+
+P—-————'
+
+who is spending an extra year is l:equired to pass
+outstanding courses without being required to register for 15 :
+minimum. Also, a student admitted through direct entry or t
+
+into 200 Level is allowed to request for a maximum of 3 extra
+per semester subject to Senate's approval.
+
+4.4 PROBATION, WITHDRAWALS,
+NEW PROGRAMME &5
+
+For a student to be in good academic standing and continue in
+
+programme, he must obtain a minimum cumulative grade
+average of 1.00 at the end of each session. A student who fails
+so will be placed on academic probation in the following year.
+the end of the probation year his cumulative grade point avera
+falls below 1.00, such a student shall be asked to withdraw from
+programme. pr
+
+Any student asked to withdraw from a programme shall be a
+to transfer to another programme provided he/she has the mi
+
+number of times a student can be allowed to transfer to anc
+programme following poor performance is once.
+
+A student who absents himself for two consecutive seme:
+without a valid reason may be asked to withdraw from
+University, irrespective of his cumulative grade point average.
+
+A student for good reasons and with the approval of Senate
+suspend his programme of study for an approved period, which &
+normally not exceed one session.
+
+11
+
+
+4.0 ACADEMIC REGULATIONS
+
+4.1 CORE/COMPULSORY
+
+Compulsory courses are those courses, which a student must register
+for and pass in order to qualify for graduation. Such courses are
+normally those considered core to the programme. Thus, it is
+possible for a course to be compulsory for one programme and to be
+otherwise elective (optional) for another programme. A student who
+
+fails a core course must register and pass the course at the next
+available offering.
+
+4.2 ELECTIVE
+
+Elective courses are optional courses required to make up the
+requirements for graduation. Each student has a choice from an array
+of elective courses available. Once an elective course is chosen, the
+student has the responsibility to ensure he/she passes it to enhance
+his or her standing because it carries the same wait as a core or
+compulsory course. If for any cogent reason an elective course is
+failed, it needs not be retaken. Each student is required to take a few
+elective courses per semester
+
+4.3 WORKLOAD
+
+The workload of each course shall be evaluated in terms of course
+units. A course unit is defined as a series of 15 hours of lectures or
+30 hours of tutorials or 45 hours of practical throughout the
+semester. A course may be evaluated in terms of lecture hours alone
+without tutorial or practical hours but may also be a combination of
+lecture, tutorial and practical hours. Every student is expected to
+register for a minimum of 15 credits units per semester and a
+maximum of 25 credit units except for Students on Students’
+Industrial Work Experience Scheme (SIWES). However, a student
+
+10
+
+2. Upper credit in ND/NCE in Mathematics and a
+science subject. '
+
+3. Credit in Professional Diploma in Computer Science o
+from recognised institution. v
+
+Amnsfetstudmtwithgoodaudanicmmm
+programme within the University or another University, Wil
+requiredtospmdaminimmnofmleeaadanic
+academic semesters) to be eligible for a BSc .
+Technology Degree of the Redeemer’s University. Such can
+must have spent at least one full session in Information Tee
+
+or any related discipline from any Senate-recognized Univer:
+have a minimum CGPA of 2.50 upon the provision of an |
+transcript. All transfer student admission applications shall
+approved by the Departmental Board of Studies, Faculty Boar
+Studies, and the University Senate.
+
+Theprogmmmelastsfor4ywsotcidnmifﬁn ;
+enters at 100 level and 3 years or six semesters if the ap
+at 200 level.
+
+e Network Administration
+
+e Web Development and Administration
+e System Administration
+
+e Systems Analyst
+
+¢ Information Security and Assurance
+
+2.2.5 RELEVANCE OF THE PROGRAMME TO THE
+SOCIETY
+
+The focus of the IT programme is to develop manpower to meet the
+computer technology needs of business, government, healthcare,
+schools, and other kinds of organizations.
+
+3.0 ADMISSION REQUIREMENTS
+
+3.1 ENTRY TO 100 LEVEL
+
+Admission to 100 level is through the UTME. To qualify for
+admission, applicants must posSess five credit passes at the SSCE (or
+its equivalent) including English and Mathematics; and three other
+subjects chosen from among the following: Further Mathematics,
+Physics, Chemistry, Biology, Geography and Agricultural Science.
+The UTME subjects are Mathematics and any two of Physics,
+Chemistry, Biology and Geography in that order of preference.
+
+3.2 ENTRY TO 200 LEVEL
+
+To qualify for admission to 200 Level, applicants should possess any
+of the following qualifications, in addition to possessing the
+requirements for admission t0 100 level:
+1. Two advanced level passes in Mathematics, and either
+Physics or Chemistry-
+
+(i)
+
+(iii)
+
+(iv)
+
+)
+
+(vi)
+
+(vii)
+
+2.2.4 JOB OPPORTUNITIES FOR GRADUATES
+B.SC (HONS) INFORMATION TECHNOLOGY
+
+To develop in students the ability to apply knowlec
+skills to solving practical problems in In
+Technology:;
+
+To equip students with the capacity for professi
+practice in computing and communications;
+
+To develop in students a range of transferrable
+information technology to all aspects of h
+endeavours;
+To develop students for the purpose of self-employme
+and job placement in the government and industry;
+
+To generate in students an appreciation of the impo
+of information technology in industrial, e
+technological and social contexts; and
+To develop in students the urge for acade
+
+professional pursuit in information technolo
+related disciplines.
+
+Our graduates are empowered to be self-employed and can also
+
+employed as:
+
+IT consultant, Cloud architect, Computer forensic investis
+Health IT specialist, Mobile application developer, Web deve
+Software engineer, Information technology vendor manager., etc.
+
+Areas of specialization for our graduates include among others:
+
+e Web Database Administration
+
+7
+
+7.2.2 MISSION STATEMENT
+
+The mission is to produce high level manpower particularly in
+information technology, who would be able to cope with the
+demands of advance and development in information and
+communication technology and who would be relevant in the fast-
+growing computer technology.
+
+2.2.3 SPECIFIC OBJECTIVES
+
+The general goal and objectives of Information Technology
+education and training should be in consonance with the realization
+of national needs and aspirations vis-a-vis industrial development
+and technological emancipation. Information ~ Technology
+programme aims to provide Information Technology graduates with
+the skills and knowledge to take on appropriate professional
+positions in Information Technology upon graduation and grow into
+leadership positions or pursue research or graduate studies in the
+field. In other words, Information Technology programme aims to
+prepare graduates with knowledge and skills for the selection,
+creation, application, integration, administration and maintenance of
+computing technologies in organizations and societies. Specifically,
+the graduates of Information Technology must therefore be
+resourceful, creative, knowledgeable and able to perform the
+following functions among others:
+
+(i) To provide students with a broad and balanced
+foundation of Information Technology knowledge and
+practical skills;
+
+The Department currently runs Postgraduate Diploma (PGD), Master
+of Science (MSc)and Doctor of Philosophy (PhD) degrees jy
+Computer Science. The Department has graduated three sets of |
+postgraduate students as at the year 2022 Convocation. ol
+
+2.0 SECTION TWO — INFORMATION TECHNOLOGY |
+CURRICULUM
+
+2.1 JUSTIFICATION FOR CURRICULUM ;
+
+The National Universities Commission [1] published a ‘Benchmark
+Minimum Academic Standards (BMAS) for Undergraduate
+Programmes in Nigerian Universities for Computing’. The
+Department is of the opinion that an opportunity has arisen for it to
+propose additional programme(s) in the Department in the light of
+creation of the discipline of Computing in the newly published
+BMAS. Thus, a curriculum in Information Technology is hereby
+proposed. As a programme, Information Technology emphasizes
+the pervasive themes of user centeredness and advocacy, information
+assurance and security, and the management of complexity through
+
+abstraction and modelling, best practices, patterns, standards, and the
+use of appropriate tools.
+
+2.2 PHILOSOPHY AND OBJECTIVES i |
+
+[2.2.1 VISION STATEMENT
+
+E‘a:nivr:mo“di;elhat our graduates would excel in character and
+moralsgwaix:h able to compete most effectively in academics and
+counterparts from the best institutions in the world.
+
+They should be able to cultj
+vate and maintain hi
+computer practice and technology e -
+
+5
+
+
+Students were admitted into the BSc Computer Science programme,
+which was one of the initial programmes approved by NUC, at
+inception of the University in 2005/2006 academic session. Over the
+years, Computer Science Programme has been a pride of the
+University from the beginning as it has always recorded the highest
+enrolments in the Faculty of Natural Sciences year in year out. Our
+graduates have also ranked among the best in the Faculty and the
+University since the time the Department graduated the first set in
+2009. In addition, since 2009 until date, the Department has been
+producing students, some of whom had come out in First Class
+Division every year. In 2009, for example, 2 students came out in
+First Class and one of them was the best in the College. In 2011 and
+2013, two of our students were the best in the University with CGPA
+of 4.97 and 4.96, respectively. In the 2015 Convocation, four of our
+final year students graduated in First Class Division. One of them
+has CGPA of 4.91 and came out best in the University. In 2018
+Convocation, 6 of our students graduated in the First Class Division,
+one of them set the new record for the University as the best
+graduating student with CGPA of 4.98. In the 2025 Convocation,
+Computer Science graduated 171 students out of which 29 obtained
+First Class (Honours), 65 Second Class Upper, 62 Second Class
+
+Lower (Honours), and 15 Third Class (Honours).
+
+Over the years, students and staff of the Computer Science
+programme had been participating fully in the activities of the
+Nigeria Computer Society and National Association of Computer
+Science Students (NACOSS). The students participated in the 7th
+Annual Information Development Programme of the Nigeria
+Computer Society that took place at the Federal Polytechnic, Ilaro,
+Ogun State from 29th October, 2015 to 30th October, 2015 and
+obtained laurels. Since moving to the permanent site at Ede in Osun
+State, our students have been involved in a number of inter-
+university competitions and have won laurels.
+
+.’,’-M‘W""
+
+BSc INFORMATION TECHNOLOGY
+CURRICULUM (BMAS)
+
+1.0 SECTION ONE - PREAMBLE
+
+1.1 VISION OF THE UNIVERSITY
+
+To be the foremost academic institution setting standards
+continuous commitment to excellence geared towards
+transformative impact on society.
+
+1.2 MISSION OF THE UNIVERSITY
+
+To continuously impact the society through commitment
+excellence in  education, research, creativity,
+
+entrepreneurship, and raising global leaders as change agents imb\
+with God-fearing attributes. ‘
+
+1.3 ABOUT THE PROGRAMME
+
+Computer Science took off as a Department in the Univi
+2014/2015 academic session having inherited Computer
+programme from the Department of Mathe
+
+matical Sciences in
+College of Natural Sciences where it was being offered as )
+However, Computer Science programme of the Dep
+Mathematical Sciences took off at the inception of the
+2005/2006 academic session. From 2014/2015 session 202
+session, the Department of Computer Science © '
+programmes, namely: BSc Computer Science (Honours), BS¢
+Security (Honours) and BSc Information Technology (Honou!
+the undergraduate level. From 2025/2026 session, the Depa
+Computer Science has now evolved into a full-fledged Faculty
+Computing and_ Digital Technologies, with three mmil Depart
+
+— Computer Science, Cyber Security and Information Technology:
+
+
+5.0 Curriculum (B.Sc. Information Technology)
+First Semester 100 Level
+Second Semester 100 level
+First Semester 200 Level
+Second Semester 200 Level
+First Semester 300 Level
+Second Semester 300 Level
+First Semester 400 Level
+Second Semester 400 Level
+6.0 Summary of Course Units (BSc Information Technology)
+7.0 Required Number of Units for Graduation 35
+7.1 Course Grades and Degree Classification 35
+7.2 Calculation of Cumulative Grade Point Average (CGPA) 35
+
+7.3 Probation and Withdrawals 36
+8.0 Staff 37
+8.1 Academic 37
+8.2 Administrative & technical 37
+8.3 Laboratory Equipment 38
+9.0 Course Content Specification 38
+Reference 48
+2
+
+
+Table of Contents
+1.0 Section One — Preamble
+1.1 Vision of The University
+1.2 Mission of the University
+1.3 About the Programme
+2.0 Section Two — INFORMATION TECHNOLOGY cu:
+2.1 Justification for Curriculum
+2.2Philosophy and Objectives
+3.0 Admission Requirements
+3.1 Entry to 100 Level
+3.2 Entry to 200 Level
+
+3.3 Transfer of Students from another Pm,
+University
+
+3.4 Duration R j
+4.0 Academic Regulations
+
+4.1 Core/Compulsory
+
+4.2 Elective
+
+4.3 Workload
+
+4.4 Probation, Withdrawals, Transfer to a newpto
+
+4.5 Registration of Courses
+
+4.6 Course Evaluation
+
+4.7 Codes of Conduct
+
+4.8 Request for review of examination's results !
+
+4.9 Examination regulations and disciplinary actions
+1
+
+REDEEMER'’S UNIVERSITY
+P.M.B. 230, EDE, OSU::,_SJgATE' NIGERIA
+
+STUDENTS'
+
+(BMAS)
+
+DEPARTMENT OF
+
+INFORMATION TECHNOLOGY
