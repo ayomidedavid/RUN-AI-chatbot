@@ -279,6 +279,12 @@ def handle_chat(request: ChatRequest, db: Session = Depends(get_db)):
     
     session_context = user_sessions[session_id]
 
+    # Construct chat history string
+    chat_history_str = ""
+    for msg in session_context.get("history", []):
+        sender_name = "User" if msg["sender"] == "user" else "Assistant"
+        chat_history_str += f"{sender_name}: {msg['message']}\n"
+
     # --- PRONOUN RESOLUTION ---
     processed_query = chat_handlers.normalize_multilingual_query(user_query)
     if any(p in user_query.split() for p in ['it', 'that', 'this', 'its']) and session_context.get("last_topic"):

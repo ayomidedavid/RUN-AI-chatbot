@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Degree Requirements - Academic Chatbot</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="theme.js"></script>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body { background: #05070a; overflow-x: hidden; }
+        body { background: var(--bg-color); overflow-x: hidden; }
         
         .bg-glow {
             position: fixed;
@@ -38,6 +39,12 @@
             -webkit-text-fill-color: transparent;
         }
 
+        [data-theme="light"] h1 {
+            background: linear-gradient(to bottom, #0f172a 0%, #475569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         .program-grid { display: flex; flex-direction: column; gap: 32px; }
 
         .program-card { 
@@ -49,6 +56,10 @@
             transition: transform 0.3s, border-color 0.3s;
             position: relative;
             overflow: hidden;
+        }
+
+        [data-theme="light"] .program-card {
+            background: rgba(255, 255, 255, 0.78);
         }
 
         .program-card::before {
@@ -64,7 +75,7 @@
             border-color: rgba(59, 130, 246, 0.4);
         }
 
-        .program-card h2 { font-size: 1.8rem; margin-bottom: 16px; color: #fff; }
+        .program-card h2 { font-size: 1.8rem; margin-bottom: 16px; color: var(--text-main); }
         .program-card p { color: var(--text-muted); margin-bottom: 32px; line-height: 1.7; font-size: 1.05rem; }
         
         .download-btn { 
@@ -86,6 +97,15 @@
             transform: scale(1.05);
         }
 
+        [data-theme="light"] .download-btn {
+            background: rgba(15, 23, 42, 0.05);
+            color: #0f172a;
+        }
+        [data-theme="light"] .download-btn:hover {
+            background: #0f172a;
+            color: #fff;
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
             .container { padding: 100px 5% 40px; }
@@ -97,12 +117,13 @@
     <div class="bg-glow"></div>
 
     <nav>
-        <div class="nav-logo">Academic Chatbot</div>
+        <a class="nav-logo" href="index.html">Academic Chatbot</a>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="degree_requirements.html">Degree Requirements</a>
+            <a href="degree_requirements.html" class="active">Degree Requirements</a>
             <a href="courses.html">Courses</a>
             <a href="contact.html">Contact</a>
+            <button class="theme-toggle-btn glow-effect" type="button" onclick="toggleTheme(); syncThemeLabel();" id="themeToggleBtn">Light mode</button>
         </div>
     </nav>
 
@@ -138,5 +159,13 @@
             </div>
         </div>
     </div>
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        function syncThemeLabel() {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            if (themeToggleBtn) themeToggleBtn.textContent = isLight ? 'Dark mode' : 'Light mode';
+        }
+        syncThemeLabel();
+    </script>
 </body>
 </html>
