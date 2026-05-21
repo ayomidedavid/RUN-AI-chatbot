@@ -1,10 +1,10 @@
-# Academic Advising Chatbot 🎓
+ Academic Advising Chatbot 
 
-# ACADEMIC QUERY — Academic Advising Chatbot 🎓
+ ACADEMIC QUERY — Academic Advising Chatbot 🎓
 
 ACADEMIC QUERY is an intelligent, full-stack Academic Advising assistant to help Computer Science students navigate degree requirements. It answers questions about courses, prerequisites, electives, career pathways, and administrative FAQs.
 
-## ✨ Features
+ Features
 
 - **Course Catalog & Details**: Easily ask about course descriptions and credit units (e.g., "Tell me about CSC 475").
 - **Prerequisite Checks**: Instantly find out what subjects you must complete before tackling advanced classes.
@@ -12,7 +12,7 @@ ACADEMIC QUERY is an intelligent, full-stack Academic Advising assistant to help
 - **FAQ Handling**: Designed with an automated fuzzy-matching algorithm to quickly answer administrative questions.
 - **Modern Landing Page**: A responsive, dark-mode, glassmorphism web interface with an integrated floating chat widget.
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 - **Frontend:** HTML5, CSS3 (Vanilla), JavaScript, Custom Web Interface design
 - **Backend:** Python + FastAPI 
@@ -20,7 +20,7 @@ ACADEMIC QUERY is an intelligent, full-stack Academic Advising assistant to help
 - **Machine Learning & Retrieval:** Scikit-Learn (Logistic Regression, TF-IDF), NLTK preprocessing, plus semantic retrieval using `sentence-transformers` + FAISS (for document search)
 - **Data Pipeline:** Custom OCR Parsing Scripts (`data_populator.py`) to systematically ingest raw student handbook texts.
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 Make sure you have the following installed on your machine:
@@ -94,7 +94,7 @@ python backend/data_populator.py
    - **On your Computer:** Open your web browser and go to `http://localhost:8080`.
    - **On your Phone:** Ensure your phone is connected to the same Wi-Fi as your PC. Open your mobile browser and enter your computer's local IP address followed by the port, e.g.: `http://172.20.10.3:8080`. *(You can find your exact IP by running `ipconfig` in your command prompt and looking for the IPv4 Address under Wireless LAN adapter Wi-Fi)*.
 
-## 🤖 Usage Examples
+##  Usage Examples
 
 You can test the chatbot using queries like:
 - "What is the description for CSC 475?" (Course Info)
@@ -102,7 +102,7 @@ You can test the chatbot using queries like:
 - "What courses should I take to become a Data Scientist?" (Careers)
 - "What are electives?" (FAQ)
 
-## 🔐 Admin Dashboard
+##  Admin Dashboard
 
 The application includes a secure **Admin Dashboard** allowing you to add, edit, or delete courses directly from your browser without editing text files.
 
