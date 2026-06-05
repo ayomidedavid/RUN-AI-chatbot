@@ -535,6 +535,62 @@
         [data-theme="light"] .history-delete {
             color: rgba(15,23,42,0.6);
         }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-content {
+            background: var(--panel-bg);
+            color: var(--panel-text);
+            padding: 24px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 400px;
+            border: 1px solid var(--glass-border);
+        }
+        .modal-content h2 { margin-top: 0; margin-bottom: 16px; }
+        .modal-content label { display: block; margin-bottom: 6px; font-size: 0.9rem; color: var(--panel-muted); }
+        .modal-content input, .modal-content select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--panel-text);
+            border-radius: 8px;
+        }
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        .btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .btn-primary {
+            background: #2563eb;
+            color: #fff;
+        }
+        .btn-secondary {
+            background: var(--glass-bg);
+            color: var(--panel-text);
+            border: 1px solid var(--glass-border);
+        }
     </style>
 </head>
 <body>
@@ -568,15 +624,44 @@
         <div class="sidebar-section-label">Chats</div>
         <div class="history-list" id="historyList"></div>
         <div class="sidebar-bottom">
-            <div class="profile-card">
-                <div class="profile-avatar">RU</div>
+            <div class="profile-card" style="cursor:pointer;" onclick="openProfileModal()">
+                <div class="profile-avatar" id="sidebarProfileInitials">?</div>
                 <div>
-                    <strong>RUN Student</strong>
-                    adviser session
+                    <strong id="sidebarProfileName">Guest</strong>
+                    <span id="sidebarProfileDetails">Click to log in</span>
                 </div>
             </div>
         </div>
     </aside>
+
+    <!-- Profile Modal -->
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal-content">
+            <h2>Student Profile</h2>
+            <label>Name</label>
+            <input type="text" id="profileName" placeholder="e.g. Danny">
+            <label>Department</label>
+            <select id="profileDept">
+                <option value="">Select Department</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Cyber Security">Cyber Security</option>
+                <option value="Software Engineering">Software Engineering</option>
+                <option value="Information Technology">Information Technology</option>
+            </select>
+            <label>Level</label>
+            <select id="profileLevel">
+                <option value="">Select Level</option>
+                <option value="100">100 Level</option>
+                <option value="200">200 Level</option>
+                <option value="300">300 Level</option>
+                <option value="400">400 Level</option>
+            </select>
+            <div class="modal-actions">
+                <button class="btn btn-secondary" onclick="closeProfileModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveProfile()">Save</button>
+            </div>
+        </div>
+    </div>
 
     <nav>
         <a class="nav-logo" href="index.html">Academic Chatbot</a>
@@ -596,7 +681,7 @@
             Introducing Academic Chatbot v2
         </div>
         <h1 class="entrance-anim" style="animation-delay: 0.1s;">Navigate your <br> Academic Journey</h1>
-        <p class="entrance-anim" style="animation-delay: 0.2s;">Ask anything about courses, prerequisites, or graduation. We'll help you find the way.</p>
+        <p class="entrance-anim" style="animation-delay: 0.2s;">Ask anything about courses, electives, or graduation. We'll help you find the way.</p>
 
         <div class="search-container entrance-anim glow-effect" id="mainSearchContainer" style="animation-delay: 0.3s;">
 
@@ -605,6 +690,10 @@
             </div>
             <div class="actions-row">
                 <div class="left-actions">
+                    <button class="action-btn" onclick="startDictation('heroInput')">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
+                        Voice
+                    </button>
                     <button class="action-btn" onclick="setPrompt('What is CSC 301?')">
                         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg>
                         CSC 301
@@ -639,13 +728,13 @@
             </div>
             <div class="actions-row">
                 <div class="left-actions">
+                    <button class="action-btn" onclick="startDictation('chatInput')">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="22"></line></svg>
+                        Voice
+                    </button>
                     <button class="action-btn">
                         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
                         Attach
-                    </button>
-                    <button class="action-btn">
-                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                        Public
                     </button>
                 </div>
                 <button class="send-btn" onclick="sendChatMessage()">
@@ -681,9 +770,41 @@
         }
 
         function handleEnterChat(e) {
-            if(e.key === 'Enter') {
+            if(e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 sendChatMessage();
+            }
+        }
+
+        // Voice Dictation Implementation
+        function startDictation(inputId) {
+            if (window.hasOwnProperty('webkitSpeechRecognition') || window.hasOwnProperty('SpeechRecognition')) {
+                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+                const recognition = new SpeechRecognition();
+
+                recognition.continuous = false;
+                recognition.interimResults = false;
+                recognition.lang = "en-US";
+
+                const inputEl = document.getElementById(inputId);
+                const originalPlaceholder = inputEl.placeholder;
+                inputEl.placeholder = "Listening...";
+                
+                recognition.start();
+
+                recognition.onresult = function(e) {
+                    inputEl.value = e.results[0][0].transcript;
+                    inputEl.placeholder = originalPlaceholder;
+                    recognition.stop();
+                };
+
+                recognition.onerror = function(e) {
+                    console.error("Speech recognition error:", e.error);
+                    inputEl.placeholder = originalPlaceholder;
+                    recognition.stop();
+                }
+            } else {
+                alert("Your browser does not support Speech Recognition. Try Chrome or Edge.");
             }
         }
 
@@ -714,10 +835,15 @@
             if(container) container.classList.add('loading-glow');
 
             try {
+                const userProfile = JSON.parse(localStorage.getItem('academic_query_profile') || '{}');
                 const res = await fetch(`${API_BASE}/api/chat`, {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ query: query, session_id: 'remodel_session' })
+                    body: JSON.stringify({ 
+                        query: query, 
+                        session_id: currentSessionId,
+                        user_profile: userProfile
+                    })
                 });
                 const data = await res.json();
                 if(container) container.classList.remove('loading-glow');
@@ -734,6 +860,12 @@
             div.innerHTML = parseMarkdown(text);
             chatHistory.appendChild(div);
             window.scrollTo(0, document.body.scrollHeight);
+            
+            // Save to history
+            const session = getCurrentSession();
+            session.messages.push({ text, sender });
+            persistSessions();
+            renderHistory();
         }
 
         function parseMarkdown(text) {
@@ -742,6 +874,41 @@
             text = text.replace(/\n- (.*?)/g, '<br>• $1');
             return text.replace(/\n/g, '<br>');
         }
+
+        // Profile Logic
+        function loadProfile() {
+            const profile = JSON.parse(localStorage.getItem('academic_query_profile') || '{}');
+            if (profile.name) {
+                document.getElementById('sidebarProfileName').innerText = profile.name;
+                document.getElementById('sidebarProfileDetails').innerText = `${profile.level}L ${profile.department}`;
+                document.getElementById('sidebarProfileInitials').innerText = profile.name.charAt(0).toUpperCase();
+            }
+        }
+
+        function openProfileModal() {
+            const profile = JSON.parse(localStorage.getItem('academic_query_profile') || '{}');
+            document.getElementById('profileName').value = profile.name || '';
+            document.getElementById('profileDept').value = profile.department || '';
+            document.getElementById('profileLevel').value = profile.level || '';
+            document.getElementById('profileModal').classList.add('active');
+        }
+
+        function closeProfileModal() {
+            document.getElementById('profileModal').classList.remove('active');
+        }
+
+        function saveProfile() {
+            const profile = {
+                name: document.getElementById('profileName').value.trim(),
+                department: document.getElementById('profileDept').value,
+                level: document.getElementById('profileLevel').value
+            };
+            localStorage.setItem('academic_query_profile', JSON.stringify(profile));
+            loadProfile();
+            closeProfileModal();
+        }
+        
+        window.addEventListener('load', loadProfile);
     </script>
     <script>
         const historyList = document.getElementById('historyList');

@@ -24,16 +24,13 @@ HAS_PUNKT = has_nltk_resource('tokenizers/punkt') and has_nltk_resource('tokeniz
 lemmatizer = WordNetLemmatizer() if HAS_WORDNET else None
 stop_words = set(stopwords.words('english')) if HAS_STOPWORDS else set()
 
-CATEGORIES = ['course_info', 'prerequisites', 'electives', 'career', 'greeting', 'small_talk', 'course_registration', 'graduation', 'gpa', 'course_management', 'department_info', 'capabilities']
+CATEGORIES = ['course_info', 'electives', 'career', 'greeting', 'small_talk', 'course_registration', 'graduation', 'gpa', 'course_management', 'department_info', 'capabilities', 'timetable']
 
 QUESTION_FILE = Path(__file__).resolve().parents[1] / 'data' / 'quetion.txt'
 
 QUESTION_CATEGORY_KEYWORDS = {
     'course_registration': [
         'register', 'register for this semester', 'units am i allowed', 'allowed to take', 'maximum unit', 'max unit', 'extra courses', 'required load', 'compulsory courses', 'compulsory course'
-    ],
-    'prerequisites': [
-        'prerequisite', 'prereqs', 'failed its prerequisite', 'skip a required course', 'need to take', 'requirements for this course'
     ],
     'electives': [
         'elective', 'electives', 'career goals', 'choose the right electives', 'best for', 'what elective', 'elective courses'
@@ -45,10 +42,13 @@ QUESTION_CATEGORY_KEYWORDS = {
         'graduate', 'graduation requirements', 'minimum number of units', 'total number of units', 'direct entry'
     ],
     'gpa': [
-        'gpa', 'grade', 'marks', 'score', '40 marks'
+        'gpa', 'grade', 'marks', 'score', '40 marks', 'first class', 'class of degree', 'degree classification'
     ],
     'course_management': [
-        'add or drop', 'clash', 'timetable', 'conflict', 'schedule'
+        'add or drop', 'clash', 'conflict'
+    ],
+    'timetable': [
+        'timetable', 'schedule', 'plan my semester', 'plan my courses', 'semester planner', 'generate timetable', 'build timetable', 'my timetable'
     ],
     'capabilities': [
         'what can you do', 'how do you work', 'what is your scope', 'help me', 'guide', 'features', 'tell me about yourself'
@@ -108,8 +108,6 @@ def guess_intent_for_question(question):
         return 'career'
     if any(k in text for k in ['graduate', 'graduation requirements', 'direct entry student units']):
         return 'graduation'
-    if any(k in text for k in ['prerequisite', 'skip a required course', 'failed its prerequisite']):
-        return 'prerequisites'
     for intent, keywords in QUESTION_CATEGORY_KEYWORDS.items():
         for keyword in keywords:
             if keyword in text:
@@ -144,17 +142,6 @@ SYNTHETIC_DATA = [
     ("how many credits is data structures?", "course_info"),
     ("what is csc301", "course_info"),
     ("tell me about csc301", "course_info"),
-    
-    ("what are the prerequisites for csc 311?", "prerequisites"),
-    ("wetin be prerequisite for csc 311", "prerequisites"),
-    ("kini prerequisite fun csc 311", "prerequisites"),
-    ("gini bu prerequisite for csc 311", "prerequisites"),
-    ("menene prerequisite for csc 311", "prerequisites"),
-    ("do I need to take math before algorithms?", "prerequisites"),
-    ("what courses are required before artificial intelligence?", "prerequisites"),
-    ("what is needed for machine learning?", "prerequisites"),
-    ("what do i need for AI", "prerequisites"),
-    ("what are the prereqs for AI", "prerequisites"),
     
     ("what electives can I take in year 3?", "electives"),
     ("tell me about elective courses", "electives"),
@@ -234,6 +221,8 @@ SYNTHETIC_DATA = [
     ("what compulsory courses do I need for 200 level", "course_registration"),
     ("what compulsory courses do I need for 300 level", "course_registration"),
     ("list compulsory courses for my level", "course_registration"),
+    ("know compulsory courses and electives", "course_registration"),
+    ("what are my compulsory courses and electives", "course_registration"),
 
     # Graduation Requirements
     ("how can I plan my courses to graduate on time", "graduation"),
@@ -258,6 +247,9 @@ SYNTHETIC_DATA = [
     ("what happens if my GPA falls below the required level", "gpa"),
     ("can I retake a course I failed and how does it affect my GPA", "gpa"),
     ("if I score 40 marks what grade would I have", "gpa"),
+    ("first class begins from what", "gpa"),
+    ("what cgpa do i need for first class", "gpa"),
+    ("how do i get a second class upper", "gpa"),
 
     # Course Management
     ("can I add or drop a course after registration", "course_management"),

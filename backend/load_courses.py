@@ -15,6 +15,7 @@ Run the script with:
 import csv
 import pathlib
 import sqlite3
+import re
 from typing import List
 
 DB_PATH = pathlib.Path(__file__).with_name("course_data.db")
@@ -56,9 +57,17 @@ def load_csv_into_db(conn: sqlite3.Connection, csv_path: pathlib.Path) -> None:
             # Convert numeric fields
             units = int(row["Units"]) if row["Units"].isdigit() else 0
             level = int(row["Level"]) if row["Level"].isdigit() else None
+            
+            raw_code = row["Course Code"].strip()
+            match = re.search(r'([A-Za-z]{3,4})\s*(\d{3})', raw_code)
+            if match:
+                normalized_code = f"{match.group(1).upper()} {match.group(2)}"
+            else:
+                normalized_code = raw_code
+                
             rows.append(
                 (
-                    row["Course Code"].strip(),
+                    normalized_code,
                     row["Course Title"].strip(),
                     units,
                     row["Status"].strip(),
