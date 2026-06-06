@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Academic Chatbot</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="theme.js"></script>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body { background: #05070a; overflow-x: hidden; }
+        body { background: var(--bg-color); overflow-x: hidden; }
         
         .bg-glow {
             position: fixed;
@@ -38,6 +39,12 @@
             -webkit-text-fill-color: transparent;
         }
 
+        [data-theme="light"] h1 {
+            background: linear-gradient(to bottom, #0f172a 0%, #475569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         p.subtitle { color: var(--text-muted); margin-bottom: 48px; font-size: 1.1rem; }
 
         .contact-card { 
@@ -51,10 +58,15 @@
             box-shadow: 0 30px 60px rgba(0,0,0,0.4);
         }
 
+        [data-theme="light"] .contact-card {
+            background: rgba(255, 255, 255, 0.78);
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+        }
+
         .contact-card h2 { 
             font-size: 2rem; 
             margin-bottom: 32px; 
-            color: #fff; 
+            color: var(--text-main); 
         }
 
         .contact-item {
@@ -77,9 +89,11 @@
         }
 
         .contact-content p { color: var(--text-muted); line-height: 1.6; }
-        .contact-content strong { color: #fff; display: block; margin-bottom: 4px; }
+        .contact-content strong { color: var(--text-main); display: block; margin-bottom: 4px; }
         .contact-content a { color: var(--primary); text-decoration: none; font-weight: 600; }
-        .contact-content a:hover { color: #fff; }
+        .contact-content a:hover { color: var(--primary-hover); }
+
+        [data-theme="light"] .contact-content a:hover { color: var(--primary-hover); }
 
         .footer-note {
             margin-top: 40px;
@@ -101,12 +115,13 @@
     <div class="bg-glow"></div>
 
     <nav>
-        <div class="nav-logo">Academic Chatbot</div>
+        <a class="nav-logo" href="index.html">Academic Chatbot</a>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="degree_requirements.html">Degree Requirements</a>
             <a href="courses.html">Courses</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="active">Contact</a>
+            <button class="theme-toggle-btn glow-effect" type="button" onclick="toggleTheme(); syncThemeLabel();" id="themeToggleBtn">Light mode</button>
         </div>
     </nav>
 
@@ -149,9 +164,17 @@
             </div>
 
             <div class="footer-note">
-                Note: Our AI Adviser is available 24/7 to answer questions regarding course selections, prerequisites, and departmental regulations.
+                Note: Our AI Adviser is available 24/7 to answer questions regarding course selections, electives, and departmental regulations.
             </div>
         </div>
     </div>
+    <script>
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        function syncThemeLabel() {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            if (themeToggleBtn) themeToggleBtn.textContent = isLight ? 'Dark mode' : 'Light mode';
+        }
+        syncThemeLabel();
+    </script>
 </body>
 </html>

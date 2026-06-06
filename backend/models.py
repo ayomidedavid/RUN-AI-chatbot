@@ -15,25 +15,15 @@ class Course(Base):
     title = Column(String(255), nullable=False)
     description = Column(Text, nullable=True)
     credits = Column(Integer, nullable=True)
-
-class Elective(Base):
-    __tablename__ = "electives"
-    id = Column(Integer, primary_key=True, index=True)
-    course_code = Column(String(20), unique=True, index=True, nullable=False)
-    title = Column(String(255), nullable=False)
-    description = Column(Text, nullable=True)
-    semester_offered = Column(String(50), nullable=True)
-
-class PrerequisiteRule(Base):
-    __tablename__ = "prerequisites"
-    id = Column(Integer, primary_key=True, index=True)
-    target_course_code = Column(String(20), ForeignKey("courses.course_code"), nullable=False)
-    required_course_code = Column(String(20), ForeignKey("courses.course_code"), nullable=False)
+    department = Column(String(100), nullable=True)
+    level = Column(Integer, nullable=True)
+    semester = Column(String(20), nullable=True)
+    status = Column(String(20), nullable=True)  # C = Compulsory, E = Elective
 
 class CareerMapping(Base):
     __tablename__ = "career_mappings"
     id = Column(Integer, primary_key=True, index=True)
-    career_path = Column(String(255), index=True, nullable=False) # e.g., 'Data Scientist', 'Software Engineer'
+    career_path = Column(String(255), index=True, nullable=False)
     recommended_course_code = Column(String(20), nullable=False)
 
 class FAQ(Base):
@@ -46,14 +36,11 @@ class ChatHistory(Base):
     __tablename__ = "chat_history"
     id = Column(Integer, primary_key=True, index=True)
     session_id = Column(String(100), index=True, nullable=False)
-    sender = Column(String(20), nullable=False)  # 'user' or 'bot'
+    sender = Column(String(20), nullable=False)
     message = Column(Text, nullable=False)
-    context = Column(Text, nullable=True) # JSON string of identified context (course_code, department, etc.)
+    context = Column(Text, nullable=True)
     timestamp = Column(String(50), nullable=False)
 
-# ----------------------------------------------------------------------
-# New models for handbook sections (CSV data loaded by load_handbook_sections.py)
-# ----------------------------------------------------------------------
 class ExamRule(Base):
     __tablename__ = "exam_rules"
     id = Column(Integer, primary_key=True, index=True)
@@ -89,4 +76,3 @@ class Policy(Base):
     id = Column(Integer, primary_key=True, index=True)
     category = Column(String(100), nullable=False)
     detail = Column(Text, nullable=False)
-

@@ -1,38 +1,110 @@
 import re
 import difflib
 import logging
-from datetime import datetime
 from sqlalchemy.orm import Session
-from sqlalchemy import or_
-from .models import Course, Elective, PrerequisiteRule, CareerMapping, FAQ, ChatHistory
+from sqlalchemy import or_, and_
+from .models import Course, CareerMapping, FAQ
 
 logger = logging.getLogger(__name__)
 
 DEPARTMENTS = {
     "Computer Science": ["CMP", "CSC", "COS"],
     "Cyber Security": ["CYB"],
-    "Information Technology": ["IFT"]
+    "Information Technology": ["IFT"],
+    "Software Engineering": ["SEN"],
+    "Information Systems": ["INS", "IFS"],
+    "IT General": ["GIT"],
+    "General Studies": ["GST"],
+    "Mathematics": ["MAT", "MTH"],
+    "Physics": ["PHY"],
+    "Biology": ["BIO"],
+    "Chemistry": ["CHE", "CHM"],
 }
 
-def extract_course_code(text):
+DEPARTMENT_KEYWORDS = {
+    "computer science": "Computer Science",
+    "csc": "Computer Science",
+    "cyber security": "Cyber Security",
+    "cyb": "Cyber Security",
+    "cyber": "Cyber Security",
+    "information technology": "Information Technology",
+    "ift": "Information Technology",
+    "it": "Information Technology",
+    "software engineering": "Software Engineering",
+    "sen": "Software Engineering",
+    "information systems": "Information Systems",
+    "ins": "Information Systems",
+    "ifs": "Information Systems",
+    "general studies": "General Studies",
+    "gst": "General Studies",
+    "mathematics": "Mathematics",
+    "maths": "Mathematics",
+    "mth": "Mathematics",
+    "mat": "Mathematics",
+    "physics": "Physics",
+    "phy": "Physics",
+    "biology": "Biology",
+    "bio": "Biology",
+    "chemistry": "Chemistry",
+    "che": "Chemistry",
+    "chm": "Chemistry",
+}
+
+def extract_course_code(text, db=None):
     match = re.search(r'([a-zA-Z]{3})\s*([0-9]{3})', text)
     if match:
-        return f"{match.group(1).upper()}{match.group(2)}"
+        return f"{match.group(1).upper()} {match.group(2)}"
+        
+    if db:
+        potential = re.findall(r'\b[a-zA-Z]{2,4}\s*[0-9]{2,3}\b', text)
+        if potential:
+            all_codes = [c.course_code for c in db.query(Course).all()]
+            for p in potential:
+                p_norm = p.upper().replace(" ", "")
+                all_codes_no_space = {c.replace(" ", ""): c for c in all_codes}
+                matches = difflib.get_close_matches(p_norm, all_codes_no_space.keys(), n=1, cutoff=0.7)
+                if matches:
+                    return all_codes_no_space[matches[0]]
     return None
 
 def extract_department(text):
-    text = text.upper()
-    for dept_name, codes in DEPARTMENTS.items():
-        for code in codes:
-            if code in text:
-                return dept_name
-    if "COMPUTER SCIENCE" in text: return "Computer Science"
-    if "CYBER SECURITY" in text: return "Cyber Security"
-    if "INFORMATION TECHNOLOGY" in text: return "Information Technology"
+    text_lower = text.lower()
+    for keyword, dept in DEPARTMENT_KEYWORDS.items():
+        if keyword in text_lower:
+            return dept
+            
+    words = text_lower.split()
+    candidates = [" ".join(words[i:i+2]) for i in range(len(words)-1)] + words
+    
+    dept_names = list(DEPARTMENT_KEYWORDS.keys())
+    for cand in candidates:
+        if len(cand) > 3:
+            matches = difflib.get_close_matches(cand, dept_names, n=1, cutoff=0.8)
+            if matches:
+                return DEPARTMENT_KEYWORDS[matches[0]]
+                
+    return None
+
+def extract_level(text):
+    match = re.search(r'(\d{3})\s*(?:level|l|lvl)\b', text.lower())
+    if match:
+        return int(match.group(1)[0]) * 100
+    match = re.search(r'(first|second|third|fourth)\s*year', text.lower())
+    if match:
+        years = {"first": 100, "second": 200, "third": 300, "fourth": 400}
+        return years.get(match.group(1), None)
+    return None
+
+def extract_semester(text):
+    text_lower = text.lower()
+    if re.search(r'\b(first|1st)\s*sem(?:ester)?\b|\bsemester\s*1\b', text_lower):
+        return "FIRST"
+    if re.search(r'\b(second|2nd)\s*sem(?:ester)?\b|\bsemester\s*2\b', text_lower):
+        return "SECOND"
     return None
 
 def handle_greeting(session_context):
-    response_text = "Hello! I am ACADEMIC QUERY, your intelligent academic adviser. You can ask me about courses, prerequisites, electives, graduation requirements, or career paths. How can I help you today?"
+    response_text = "Hello! I am ACADEMIC QUERY, your intelligent academic adviser. You can ask me about courses, electives, registration, graduation requirements, GPA, or career paths. How can I help you today?"
     if not session_context.get("department_confirmed"):
         response_text += " To provide the most accurate advice, could you please tell me your department? (Computer Science, Cyber Security, or Information Technology)"
     return response_text
@@ -72,10 +144,8 @@ def handle_small_talk(user_query, session_context):
         return "greeting", handle_greeting(session_context)
 
     if text in wellbeing_phrases:
-        return (
-            "small_talk",
-            "I'm doing well, thanks for asking. I'm ready to help with courses, prerequisites, registration, GPA, graduation, or career advice."
-        )
+        return ("small_talk",
+            "I'm doing well, thanks for asking. I'm ready to help with courses, registration, GPA, graduation, or career advice.")
 
     if text in thanks_phrases:
         return "small_talk", "You're welcome. What else would you like to check?"
@@ -121,55 +191,72 @@ def handle_capabilities(session_context):
     return (
         "I can help you with a wide range of academic queries, including:\n"
         "- **Course Info**: Details about specific courses and their credit units.\n"
-        "- **Prerequisites**: What you need to pass before taking advanced courses.\n"
         "- **Electives**: Recommendations based on your level and career goals.\n"
         "- **Registration**: Guidance on unit limits, add/drop periods, and timetable clashes.\n"
         "- **Graduation**: Tracking your progress towards the 160 units (120 for Direct Entry) requirement.\n"
-        "- **GPA**: Explaining the 5.0 scale and how to stay in good standing.\n"
+        "- **GPA**: Explaining the 5.0 scale and how to compute your GPA.\n"
         "- **Careers**: Mapping courses to paths like Data Science or Cybersecurity.\n\n"
         "What would you like to know more about?"
     )
 
+def build_course_query(db, user_query, session_context):
+    q = db.query(Course)
+    filters = []
+
+    query_dept = extract_department(user_query)
+    dept = query_dept if query_dept else (session_context.get("department") if session_context.get("department_confirmed") else None)
+    
+    if dept:
+        prefixes = DEPARTMENTS.get(dept, [])
+        if prefixes:
+            or_filters = [Course.course_code.like(f"{p}%") for p in prefixes]
+            filters.append(or_(*or_filters))
+
+    level = extract_level(user_query)
+    if level:
+        filters.append(Course.level == level)
+
+    semester = extract_semester(user_query)
+    if semester:
+        filters.append(Course.semester == semester.upper())
+
+    if filters:
+        q = q.filter(and_(*filters) if len(filters) > 1 else filters[0])
+
+    return q, dept
+
 def handle_course_info(db, user_query, course_code, session_context):
     if course_code:
-        course = db.query(Course).filter(Course.course_code == course_code).first()
+        normalized = course_code.replace(" ", "").upper()
+        courses = db.query(Course).all()
+        course = None
+        for c in courses:
+            if c.course_code.replace(" ", "").upper() == normalized:
+                course = c
+                break
         if course:
-            return f"Here is the information for {course.title} ({course.course_code}): {course.description}. Credits: {course.credits}."
+            dept_info = f" ({course.department})" if course.department else ""
+            sem_info = f" - {course.semester} Semester" if course.semester else ""
+            level_info = f" {course.level} Level" if course.level else ""
+            status_info = " (Compulsory)" if course.status == "C" else " (Elective)" if course.status == "E" else ""
+            return f"Here is the information for {course.title} ({course.course_code}){dept_info}{level_info}{sem_info}: {course.description}. Credits: {course.credits}{status_info}."
         return f"I'm sorry, I couldn't find any information on {course_code} in our database."
-    
-    dept_prompt = "" if session_context.get("department_confirmed") else " Also, please tell me your department."
-    return "It seems you're asking about course options. What level are you asking about (e.g., 200 level, 300 level)?" + dept_prompt
 
-def handle_prerequisites(db, user_query, course_code):
-    level_match = re.search(r'([1-5]00)\s*level', user_query)
-    if course_code:
-        prereqs = db.query(PrerequisiteRule).filter(PrerequisiteRule.target_course_code == course_code).all()
-        if prereqs:
-            codes = [p.required_course_code for p in prereqs]
-            response = f"The prerequisites for {course_code} are: {', '.join(codes)}."
-            if "failed" in user_query:
-                response += " Generally, you cannot register for a course if you have not passed its prerequisites. You must retake and pass the prerequisite first."
-            return response
-        return f"There are no required prerequisites listed for {course_code}."
-    elif "failed" in user_query and "prerequisite" in user_query:
-        return "No. If you failed a prerequisite, you generally need to retake and pass that prerequisite before registering for the higher-level course."
-    elif "skip" in user_query and "course" in user_query:
-        return "Skipping a required (compulsory) course is not allowed. All compulsory courses must be passed to qualify for graduation. If it's a prerequisite, you'll be blocked from higher-level courses."
-    elif level_match:
-        level_str = level_match.group(1)[0]
-        courses_in_level = db.query(Course).filter(Course.course_code.like(f"%{level_str}__")).all()
-        if courses_in_level:
-            course_codes = [c.course_code for c in courses_in_level]
-            all_rules = db.query(PrerequisiteRule).filter(PrerequisiteRule.target_course_code.in_(course_codes)).all()
-            if all_rules:
-                grouped = {}
-                for p in all_rules:
-                    grouped.setdefault(p.target_course_code, []).append(p.required_course_code)
-                details = [f"- {k} requires {', '.join(v)}" for k, v in grouped.items()]
-                return f"Here are the prerequisites for {level_match.group(1)} level courses:\n" + "\n".join(details)
-            return f"There are no prerequisites currently recorded for {level_match.group(1)} level courses."
-        return f"I couldn't find any courses for the {level_match.group(1)} level."
-    return "Please specify the exact course code or academic level (e.g., '300 level') you want to check prerequisites for."
+    level = extract_level(user_query)
+    semester = extract_semester(user_query)
+    
+    q, effective_dept = build_course_query(db, user_query, session_context)
+    courses = q.order_by(Course.level, Course.semester, Course.course_code).limit(15).all()
+
+    if courses:
+        dept_label = f" for {effective_dept}" if effective_dept else ""
+        level_label = f" {level} Level" if level else ""
+        sem_label = f" {semester} Semester" if semester else ""
+        items = [f"{c.course_code}: {c.title} ({c.credits} units)" for c in courses]
+        return f"Here are the courses{dept_label}{level_label}{sem_label}:\n- " + "\n- ".join(items)
+
+    dept_prompt = "" if effective_dept else " Also, please tell me your department."
+    return "It seems you're asking about course options. What level are you asking about (e.g., 200 level, 300 level)?" + dept_prompt
 
 def handle_electives(db, user_query, session_context):
     if "career" in user_query and any(k in user_query for k in ["cybersecurity", "software engineering", "data science"]):
@@ -180,53 +267,68 @@ def handle_electives(db, user_query, session_context):
             "- Data Science: prioritize statistics, databases, data analysis, artificial intelligence, and machine learning related courses."
         )
 
-    level_match = re.search(r'([1-5])00\s*level', user_query) or re.search(r'([1-5])00', user_query)
-    electives_q = db.query(Elective)
-    if level_match:
-        level_digit = level_match.group(1)
-        electives_q = electives_q.filter(Elective.course_code.like(f"%{level_digit}__"))
+    q = db.query(Course).filter(Course.status == "E")
 
-    confirmed_dept = session_context.get("department") if session_context.get("department_confirmed") else None
-    if confirmed_dept:
-        prefixes = DEPARTMENTS.get(confirmed_dept, [])
+    level = extract_level(user_query)
+    if level:
+        q = q.filter(Course.level == level)
+
+    semester = extract_semester(user_query)
+    if semester:
+        q = q.filter(Course.semester == semester.upper())
+
+    query_dept = extract_department(user_query)
+    dept = query_dept if query_dept else (session_context.get("department") if session_context.get("department_confirmed") else None)
+    if dept:
+        prefixes = DEPARTMENTS.get(dept, [])
         if prefixes:
-            or_filters = [Elective.course_code.like(f"{p}%") for p in prefixes]
-            electives_q = electives_q.filter(or_(*or_filters))
+            or_filters = [Course.course_code.like(f"{p}%") for p in prefixes]
+            q = q.filter(or_(*or_filters))
 
-    electives = electives_q.limit(10).all()
+    electives = q.order_by(Course.level, Course.semester, Course.course_code).limit(10).all()
     if electives:
-        items = [f"{e.course_code}: {e.title}" for e in electives]
+        items = [f"{e.course_code}: {e.title} ({e.credits} units)" for e in electives]
         return "Here are some electives you can take:\n- " + "\n- ".join(items)
+
     return "I couldn't find any electives matching that level/department. Try specifying a level (e.g., '300 level') or your department."
 
 def handle_registration(db, user_query, session_context):
-    level_match = re.search(r'(\d{3})\s*level', user_query)
-    confirmed_dept = session_context.get("department") if session_context.get("department_confirmed") else None
-    
+    level = extract_level(user_query)
+    query_dept = extract_department(user_query)
+    dept = query_dept if query_dept else (session_context.get("department") if session_context.get("department_confirmed") else None)
+    semester = extract_semester(user_query)
+
     if "how many" in user_query or "maximum" in user_query or "unit" in user_query:
         if "direct entry" in user_query:
-             return "As a direct entry or transfer student into 200 Level, you are allowed to request for a maximum of 3 extra units per semester (totaling up to 28 units), subject to Senate's approval. The standard maximum is 25 units."
+            return "As a direct entry or transfer student into 200 Level, you are allowed to request for a maximum of 3 extra units per semester (totaling up to 28 units), subject to Senate's approval. The standard maximum is 25 units."
         return "Every student is expected to register for a minimum of 15 credit units per semester and a maximum of 25 credit units."
-    
+
     if "extra" in user_query or "beyond" in user_query:
         return "Yes, you can typically take extra courses beyond your required load (up to the 25-unit limit). If you are a direct entry student, you can request up to 3 extra units beyond the standard maximum with Senate approval."
-    
+
     if "compulsory" in user_query or "required" in user_query or "should i register" in user_query:
-        if level_match:
-            level_str = level_match.group(1)[0]
-            courses = db.query(Course).filter(Course.course_code.like(f"%{level_str}__")).all()
-            if courses:
-                elective_codes = {e.course_code for e in db.query(Elective).all()}
-                compulsory = [c for c in courses if c.course_code not in elective_codes]
-                if compulsory:
-                    items = [f"{c.course_code}: {c.title}" for c in compulsory[:12]]
-                    dept_note = f" for {confirmed_dept}" if confirmed_dept else ""
-                    return f"Here are the compulsory courses for {level_match.group(1)} level{dept_note}:\n- " + "\n- ".join(items)
+        q = db.query(Course).filter(Course.status == "C")
+        if level:
+            q = q.filter(Course.level == level)
+        if semester:
+            q = q.filter(Course.semester == semester.upper())
+        if dept:
+            prefixes = DEPARTMENTS.get(dept, [])
+            if prefixes:
+                or_filters = [Course.course_code.like(f"{p}%") for p in prefixes]
+                q = q.filter(or_(*or_filters))
+
+        courses = q.order_by(Course.course_code).limit(15).all()
+        if courses:
+            items = [f"{c.course_code}: {c.title}" for c in courses]
+            dept_label = f" for {dept}" if dept else ""
+            level_label = f" {level} Level" if level else ""
+            return f"Here are the compulsory courses{dept_label}{level_label}:\n- " + "\n- ".join(items)
         return "To see your compulsory courses, please specify your level (e.g., '200 level'). Compulsory courses are those you must pass to qualify for graduation."
 
     if "add" in user_query or "drop" in user_query:
         return "You can add or drop courses within two weeks after the close of the registration period. Deletion is only allowed up to three weeks before exams start."
-    
+
     if "clash" in user_query or "timetable" in user_query:
         return "If there are omissions or clashes in your timetable, you must promptly draw the attention of your Head of Department for immediate action."
 
@@ -241,9 +343,56 @@ def handle_graduation(db, user_query):
         return "To graduate on time, ensure you pass all compulsory courses at each level. You can track your progress by checking your CGPA and total units against the 160-unit requirement (120 for Direct Entry)."
     return "Graduation requirements include passing all compulsory courses and meeting the minimum unit requirement (160 for 100-level entry, 120 for 200-level entry)."
 
+def calculate_gpa_from_text(text):
+    matches1 = re.findall(r'(\d)\s*(?:units?|credits?|u|c)?\s*(?:-|:|,|=)?\s*([A-Fa-f])\b', text, re.IGNORECASE)
+    matches2 = re.findall(r'\b([A-Fa-f])\s*(?:-|:|,|=)?\s*(\d)\s*(?:units?|credits?|u|c)?\b', text, re.IGNORECASE)
+    
+    matches = matches1 if len(matches1) >= len(matches2) else [(u, g) for g, u in matches2]
+    
+    if not matches:
+        return None
+        
+    grade_points = {"A": 5, "B": 4, "C": 3, "D": 2, "E": 1, "F": 0}
+    total_qp = 0
+    total_units = 0
+    
+    breakdown = []
+    for units_str, grade in matches:
+        units = int(units_str)
+        gp = grade_points.get(grade.upper())
+        if gp is not None and units > 0:
+            total_qp += units * gp
+            total_units += units
+            breakdown.append(f"{units} units of {grade.upper()}")
+            
+    if total_units > 0:
+        gpa = total_qp / total_units
+        return f"I calculated your GPA based on the grades provided:\n- Breakdown: {', '.join(breakdown)}\n- Total Units: {total_units}\n- Total Quality Points: {total_qp}\n\n**Your calculated GPA is: {gpa:.2f}**"
+    return None
+
 def handle_gpa(user_query):
-    if "calculated" in user_query or "calculate" in user_query or "how is" in user_query:
-        return "CGPA is calculated by dividing the sum of quality points (Credit Units × Grade Points) by the total sum of credit units taken (CGPA = Σ(CR × QP) / ΣCR). We use a 5.0 scale."
+    calc_result = calculate_gpa_from_text(user_query)
+    if calc_result:
+        return calc_result
+
+    if "first class begins" in user_query or "class of degree" in user_query or "degree classification" in user_query:
+        return (
+            "Degree Classifications based on CGPA:\n"
+            "- First Class Honours: 4.50 - 5.00\n"
+            "- Second Class Honours (Upper Division): 3.50 - 4.49\n"
+            "- Second Class Honours (Lower Division): 2.40 - 3.49\n"
+            "- Third Class Honours: 1.50 - 2.39\n"
+            "- Pass: 1.00 - 1.49\n"
+            "- Fail: Below 1.00\n\n"
+            "So, First Class begins from 4.50 CGPA."
+        )
+    if "calculate" in user_query or "calculated" in user_query or "how is" in user_query or "compute" in user_query:
+        return (
+            "I can help you calculate your CGPA right here! Just list your units and grades in your next message.\n\n"
+            "For example, you can say: `I got 3 units A, 3 units B, and 2 units C` or just `3A, 3B, 2C`.\n\n"
+            "Alternatively, if you're doing it manually, the formula is: Sum of (Credit Units x Grade Points) / Sum of (Credit Units).\n"
+            "Grade Scale: A=5, B=4, C=3, D=2, E=1, F=0."
+        )
     if "minimum" in user_query or "stay" in user_query or "below" in user_query:
         return "To stay in the program, you must maintain a minimum CGPA of 1.00. If your CGPA falls below 1.00 for two consecutive semesters, you will be placed on probation, and potentially asked to withdraw if it doesn't improve."
     if "retake" in user_query or "failed" in user_query:
@@ -261,20 +410,15 @@ def handle_career(db, user_query):
         return "For Data Science, focus on IFT 301 (Data Analysis), CSC 343 (Database Systems), and Data Mining topics usually covered in advanced electives."
     if "not very good at programming" in user_query:
         return "If programming isn't your strength, you might consider electives like Management Information Systems (INS 207) or Information Technology in Business (IFT 205) which focus more on the application and management side."
-    
+
     mappings = db.query(CareerMapping).all()
-    found_career = None
     for m in mappings:
         if m.career_path.lower() in user_query:
-            found_career = m
-            break
-    if found_career:
-        return f"To pursue a career as a {found_career.career_path}, we recommend taking {found_career.recommended_course_code}."
-    
+            return f"To pursue a career as a {m.career_path}, we recommend taking {m.recommended_course_code}."
+
     return "We have advice for various career paths. Tell me which field you're interested in, such as Cybersecurity, Data Science, or Web Development."
 
 def handle_fallback(db, user_query):
-    # Try FAQ first
     faqs = db.query(FAQ).all()
     faq_questions = [faq.question.lower() for faq in faqs]
     matches = difflib.get_close_matches(user_query, faq_questions, n=1, cutoff=0.5)
@@ -282,15 +426,53 @@ def handle_fallback(db, user_query):
         matched_q = matches[0]
         matched_faq = next(f for f in faqs if f.question.lower() == matched_q)
         return matched_faq.answer, "faq"
-    
-    # Try course search
+
     course_matches = db.query(Course).filter(
-        (Course.title.ilike(f"%{user_query}%")) | 
+        (Course.title.ilike(f"%{user_query}%")) |
         (Course.description.ilike(f"%{user_query}%"))
     ).limit(3).all()
-    
+
     if course_matches:
         items = [f"{c.course_code}: {c.title}" for c in course_matches]
         return f"I couldn't find an exact answer, but here are some related courses:\n- " + "\n- ".join(items), "course_search"
+
+    return "", "fallback"
+
+def handle_timetable(db, user_query, session_context):
+    dept = session_context.get("department") or extract_department(user_query)
+    level = extract_level(user_query)
+    semester = extract_semester(user_query) or 1
     
-    return "I'm not quite sure about that specific detail. Try asking about courses, prerequisites, graduation requirements, or CGPA.", "fallback"
+    if not dept:
+        profile = session_context.get("user_profile", {})
+        dept = profile.get("department")
+        level = level or profile.get("level")
+        
+    if not dept or not level:
+        return "To generate a timetable, I need your department and level (e.g., 'Generate timetable for 300L Computer Science'). If you set your Profile in the sidebar, I'll know this automatically!"
+
+    query = db.query(Course).filter(Course.department == dept, Course.level == level)
+    if semester:
+        query = query.filter(Course.semester == semester)
+        
+    compulsory_courses = query.filter(Course.is_compulsory == True).all()
+    elective_courses = query.filter(Course.is_compulsory == False).limit(2).all()
+    
+    if not compulsory_courses:
+        return f"I couldn't find any courses for {level}L {dept} in my database."
+        
+    lines = [f"Here is a recommended Semester Plan for {level}L {dept} (Semester {semester}):\n"]
+    lines.append("| Course Code | Title | Units | Type |")
+    lines.append("|---|---|---|---|")
+    
+    total_units = 0
+    for c in compulsory_courses:
+        lines.append(f"| **{c.course_code}** | {c.title} | {c.credits} | Compulsory |")
+        total_units += c.credits
+        
+    for c in elective_courses:
+        lines.append(f"| **{c.course_code}** | {c.title} | {c.credits} | Elective |")
+        total_units += c.credits
+        
+    lines.append(f"\n**Total Expected Units:** {total_units}")
+    return "\n".join(lines)

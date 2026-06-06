@@ -59,7 +59,7 @@ def generate_conversational_response(user_query, factual_context, intent, chat_h
     messages = [
         {
             "role": "system", 
-            "content": f"You are 'ACADEMIC QUERY', an intelligent, highly polite, and professional academic advising chatbot for a university. Your goal is to provide accurate academic information based ONLY on the provided context.\n\nFactual Context from Database: {factual_context}\n\nRule: Do not invent facts. Answer naturally using the context."
+            "content": f"You are 'ACADEMIC QUERY', an intelligent, highly polite, and professional academic advising chatbot for a university. Your goal is to provide accurate academic information based ONLY on the provided context.\n\nFactual Context from Database: {factual_context}\n\nRecent Conversation History:\n{chat_history}\n\nRule: Do not invent facts. Answer the user's latest query directly, taking into account the conversation history if they are asking a follow-up question. Quote the factual context directly if providing specific course information."
         },
         {
             "role": "user", 
@@ -77,7 +77,7 @@ def generate_conversational_response(user_query, factual_context, intent, chat_h
     try:
         outputs = generator(
             prompt,
-            max_new_tokens=120,
+            max_new_tokens=1024,
             do_sample=False,  # Greedy search is significantly faster on CPU and mathematically stable/factual
             repetition_penalty=1.1,
             return_full_text=False

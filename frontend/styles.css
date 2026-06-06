@@ -81,6 +81,32 @@ nav {
     color: var(--text-main);
 }
 
+.theme-toggle-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-main);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-family: inherit;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle-btn:hover {
+    border-color: rgba(59, 130, 246, 0.42);
+    color: #fff;
+}
+
+[data-theme="light"] .theme-toggle-btn:hover {
+    color: #0f172a;
+    border-color: rgba(37, 99, 235, 0.42);
+}
+
 @media (max-width: 768px) {
     nav {
         gap: 14px;

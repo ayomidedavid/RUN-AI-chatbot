@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div class="chat-area" id="chatArea">
             <div class="message bot">
-                Hello! I am your AI Academic Advisor. Whether you need information about electives, prerequisites, or graduation requirements, I'm here to help.
+                Hello! I am your AI Academic Advisor. Whether you need information about courses, electives, or graduation requirements, I'm here to help.
             </div>
             <div class="quick-actions">
                 <button onclick="handleQuickAction('What can you do?')">What can you do?</button>

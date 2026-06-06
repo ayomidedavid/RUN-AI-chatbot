@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses - Academic Chatbot</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="theme.js"></script>
     <link rel="stylesheet" href="styles.css">
     <style>
-        body { background: #05070a; overflow-x: hidden; }
+        body { background: var(--bg-color); overflow-x: hidden; }
         
         .bg-glow {
             position: fixed;
@@ -39,6 +40,12 @@
             -webkit-text-fill-color: transparent;
         }
 
+        [data-theme="light"] h1 {
+            background: linear-gradient(to bottom, #0f172a 0%, #475569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         p.intro { color: var(--text-muted); margin-bottom: 48px; font-size: 1.1rem; max-width: 600px; }
         
         .controls { 
@@ -66,6 +73,15 @@
         }
         .control-group select:focus { border-color: var(--primary); }
 
+        [data-theme="light"] .control-group select {
+            background: rgba(15, 23, 42, 0.04);
+            color: #0f172a;
+        }
+        [data-theme="light"] .control-group select option {
+            background: #ffffff;
+            color: #0f172a;
+        }
+
         .table-container { 
             background: rgba(20, 25, 35, 0.4); 
             backdrop-filter: blur(20px);
@@ -75,8 +91,13 @@
             box-shadow: 0 30px 60px rgba(0,0,0,0.3);
         }
 
+        [data-theme="light"] .table-container {
+            background: rgba(255, 255, 255, 0.78);
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+        }
+
         table { width: 100%; border-collapse: collapse; }
-        th, td { text-align: left; padding: 20px 24px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        th, td { text-align: left; padding: 20px 24px; border-bottom: 1px solid var(--border); }
         th { 
             background: rgba(255,255,255,0.02); 
             color: var(--text-muted); 
@@ -87,9 +108,12 @@
         }
         tr:last-child td { border-bottom: none; }
         tr:hover { background: rgba(255,255,255,0.02); }
+
+        [data-theme="light"] tr:hover { background: rgba(15, 23, 42, 0.02); }
+        [data-theme="light"] th { background: rgba(15, 23, 42, 0.02); }
         
         td.code { color: var(--primary); font-weight: 600; font-family: monospace; font-size: 1rem; }
-        td.credits { text-align: center; font-weight: 700; color: #fff; }
+        td.credits { text-align: center; font-weight: 700; color: var(--text-main); }
 
         .tag { 
             display: inline-flex; 
@@ -102,6 +126,10 @@
         .tag.dept-cs { background: rgba(59, 130, 246, 0.1); color: #60a5fa; border-color: rgba(59, 130, 246, 0.2); }
         .tag.dept-cyb { background: rgba(139, 92, 246, 0.1); color: #a78bfa; border-color: rgba(139, 92, 246, 0.2); }
         .tag.dept-it { background: rgba(16, 185, 129, 0.1); color: #34d399; border-color: rgba(16, 185, 129, 0.2); }
+
+        [data-theme="light"] .tag.dept-cs { color: #1d4ed8; background: rgba(37, 99, 235, 0.08); border-color: rgba(37, 99, 235, 0.15); }
+        [data-theme="light"] .tag.dept-cyb { color: #6d28d9; background: rgba(109, 40, 217, 0.08); border-color: rgba(109, 40, 217, 0.15); }
+        [data-theme="light"] .tag.dept-it { color: #047857; background: rgba(5, 150, 105, 0.08); border-color: rgba(5, 150, 105, 0.15); }
         
         .loading { padding: 60px; text-align: center; color: var(--text-muted); }
         
@@ -115,12 +143,13 @@
     <div class="bg-glow"></div>
 
     <nav>
-        <div class="nav-logo">Academic Chatbot</div>
+        <a class="nav-logo" href="index.html">Academic Chatbot</a>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="degree_requirements.html">Degree Requirements</a>
-            <a href="courses.html">Courses</a>
+            <a href="courses.html" class="active">Courses</a>
             <a href="contact.html">Contact</a>
+            <button class="theme-toggle-btn glow-effect" type="button" onclick="toggleTheme(); syncThemeLabel();" id="themeToggleBtn">Light mode</button>
         </div>
     </nav>
 
@@ -225,6 +254,13 @@
         }
 
         fetchCourses();
+
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        function syncThemeLabel() {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            if (themeToggleBtn) themeToggleBtn.textContent = isLight ? 'Dark mode' : 'Light mode';
+        }
+        syncThemeLabel();
     </script>
 </body>
 </html>

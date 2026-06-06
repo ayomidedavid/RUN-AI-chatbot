@@ -15,17 +15,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from .database import get_db, engine, Base
-from .models import Course, Elective, PrerequisiteRule, CareerMapping, FAQ, ChatHistory
+from .models import Course, CareerMapping, FAQ, ChatHistory
 from .ml_model import IntentClassifier
 from . import chat_handlers
 from . import llm_service
 import pickle
 
-# Load security config from env
 ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin123")
 CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*").split(",")
 
-# Configure logging early
 logging.basicConfig(
     filename='chatbot.log',
     level=logging.INFO,
@@ -35,7 +33,6 @@ logger = logging.getLogger(__name__)
 
 import faiss
 
-# Create FastAPI app
 app = FastAPI(title="ACADEMIC QUERY")
 
 app.add_middleware(
@@ -48,15 +45,11 @@ app.add_middleware(
 
 @app.on_event("startup")
 def preload_models():
-    """Eagerly load models into memory when the server boots up so the very first chat is completely instantaneous."""
     logger.info("Pre-loading AI models into memory...")
-    # Pre-load the local LLM generator
     llm_service.get_generator()
-    # Pre-load the retrieval model
     load_retrieval()
     logger.info("All AI models pre-loaded successfully! Server is ready.")
 
-# Load retrieval artifacts
 RETRIEVAL_MODEL = None
 FAISS_INDEX = None
 CHUNKS = None
@@ -68,7 +61,6 @@ def load_retrieval(out_dir=None, model_name='all-MiniLM-L6-v2'):
     RETRIEVAL_LOAD_ATTEMPTED = True
     try:
         from sentence_transformers import SentenceTransformer
-
         base = Path(__file__).resolve().parent
         idx_path = base / 'faiss.index'
         chunks_path = base / 'chunks.pkl'
@@ -150,6 +142,7 @@ intent_classifier.load_model()
 class ChatRequest(BaseModel):
     query: str
     session_id: Optional[str] = None
+    user_profile: Optional[dict] = None
 
 class ChatResponse(BaseModel):
     intent: str
@@ -170,20 +163,71 @@ class CourseUpdate(BaseModel):
     credits: Optional[int] = None
     new_course_code: Optional[str] = None
 
+class GPACalculationRequest(BaseModel):
+    courses: List[dict]
+
+class GPACalculationResponse(BaseModel):
+    gpa: float
+    total_quality_points: float
+    total_credits: int
+    breakdown: List[dict]
+
+GRADE_POINTS = {
+    "A": 5, "B": 4, "C": 3, "D": 2, "E": 1, "F": 0
+}
+
+def score_to_grade(score):
+    if score >= 70: return "A"
+    if score >= 60: return "B"
+    if score >= 50: return "C"
+    if score >= 45: return "D"
+    if score >= 40: return "E"
+    return "F"
+
+@app.post("/api/gpa/calculate", response_model=GPACalculationResponse)
+def calculate_gpa(request: GPACalculationRequest):
+    total_qp = 0.0
+    total_credits = 0
+    breakdown = []
+    for c in request.courses:
+        credits = c.get("credits", 0)
+        score = c.get("score", 0)
+        grade = c.get("grade", score_to_grade(score))
+        gp = GRADE_POINTS.get(grade.upper(), 0)
+        qp = credits * gp
+        total_qp += qp
+        total_credits += credits
+        breakdown.append({
+            "course": c.get("course", "Unknown"),
+            "credits": credits,
+            "score": score,
+            "grade": grade.upper(),
+            "grade_point": gp,
+            "quality_point": qp
+        })
+    gpa = round(total_qp / total_credits, 2) if total_credits > 0 else 0.0
+    return GPACalculationResponse(
+        gpa=gpa,
+        total_quality_points=total_qp,
+        total_credits=total_credits,
+        breakdown=breakdown
+    )
+
 @app.get("/api/courses")
 def get_all_courses(db: Session = Depends(get_db)):
-    courses = db.query(Course).all()
+    courses = db.query(Course).order_by(Course.level, Course.semester, Course.course_code).all()
     result = []
     for c in courses:
-        dept = chat_handlers.extract_department(c.course_code) or "Other"
-        match = re.search(r'[0-9]{3}', c.course_code)
-        level = f"{match.group(0)[0]}00 Level" if match else "Unknown"
+        dept = c.department or chat_handlers.extract_department(c.course_code) or "Other"
+        level = c.level or 0
         result.append({
             "course_code": c.course_code,
             "title": c.title,
             "credits": c.credits,
             "department": dept,
-            "level": level
+            "level": f"{level // 100}00 Level" if level else "Unknown",
+            "semester": c.semester or "Unknown",
+            "status": c.status or "Unknown"
         })
     return {"courses": result}
 
@@ -206,13 +250,13 @@ def get_system_status(db: Session = Depends(get_db), _: None = Depends(verify_ad
 @app.post("/api/admin/courses")
 def create_course(course: CourseCreate, db: Session = Depends(get_db), _: None = Depends(verify_admin)):
     existing = db.query(Course).filter(Course.course_code == course.course_code).first()
-    if existing: raise HTTPException(status_code=400, detail="Course already exists")
+    if existing:
+        raise HTTPException(status_code=400, detail="Course already exists")
     new_course = Course(**course.dict())
     db.add(new_course)
     db.commit()
     return {"message": "Course created successfully"}
 
-# FAQ Management
 @app.get("/api/faqs")
 def get_faqs(db: Session = Depends(get_db)):
     return {"faqs": db.query(FAQ).all()}
@@ -230,7 +274,6 @@ def delete_faq(faq_id: int, db: Session = Depends(get_db), _: None = Depends(ver
     db.commit()
     return {"message": "FAQ deleted"}
 
-# Career Mapping Management
 @app.get("/api/careers")
 def get_careers(db: Session = Depends(get_db)):
     return {"careers": db.query(CareerMapping).all()}
@@ -248,12 +291,12 @@ def delete_career(mapping_id: int, db: Session = Depends(get_db), _: None = Depe
     db.commit()
     return {"message": "Career mapping deleted"}
 
-# Handbook Data Management
 @app.get("/api/admin/handbook/{category}")
 def get_handbook_data(category: str, db: Session = Depends(get_db), _: None = Depends(verify_admin)):
     from .models import ExamRule, Conduct, Policy, Staff
     table_map = {"exams": ExamRule, "conduct": Conduct, "policies": Policy, "staff": Staff}
-    if category not in table_map: raise HTTPException(status_code=400, detail="Invalid category")
+    if category not in table_map:
+        raise HTTPException(status_code=400, detail="Invalid category")
     return {"data": db.query(table_map[category]).all()}
 
 @app.post("/api/chat", response_model=ChatResponse)
@@ -261,7 +304,6 @@ def handle_chat(request: ChatRequest, db: Session = Depends(get_db)):
     user_query = request.query.lower()
     session_id = request.session_id or "default"
     if session_id not in user_sessions:
-        # Try to load context from DB
         last_chat = db.query(ChatHistory).filter(ChatHistory.session_id == session_id).order_by(ChatHistory.id.desc()).first()
         if last_chat and last_chat.context:
             try:
@@ -270,34 +312,43 @@ def handle_chat(request: ChatRequest, db: Session = Depends(get_db)):
                 user_sessions[session_id] = {"last_intent": None, "last_topic": None, "department": None, "department_confirmed": False, "history": []}
         else:
             user_sessions[session_id] = {
-                "last_intent": None, 
+                "last_intent": None,
                 "last_topic": None,
                 "department": None,
                 "department_confirmed": False,
                 "history": []
             }
-    
+
     session_context = user_sessions[session_id]
 
-    # --- PRONOUN RESOLUTION ---
+    if request.user_profile:
+        if request.user_profile.get("department"):
+            session_context["department"] = request.user_profile.get("department")
+            session_context["department_confirmed"] = True
+        session_context["user_profile"] = request.user_profile
+
+    chat_history_str = ""
+    for msg in session_context.get("history", []):
+        sender_name = "User" if msg["sender"] == "user" else "Assistant"
+        chat_history_str += f"{sender_name}: {msg['message']}\n"
+
     processed_query = chat_handlers.normalize_multilingual_query(user_query)
     if any(p in user_query.split() for p in ['it', 'that', 'this', 'its']) and session_context.get("last_topic"):
         processed_query = user_query.replace('it', session_context["last_topic"]).replace('that', session_context["last_topic"])
         logger.info(f"Resolved context: '{user_query}' -> '{processed_query}'")
-    # --------------------------
-    
-    # Save user message with current context
+
     try:
         entry = ChatHistory(
-            session_id=session_id, 
-            sender="user", 
-            message=request.query, 
+            session_id=session_id,
+            sender="user",
+            message=request.query,
             context=json.dumps(session_context),
             timestamp=datetime.now().isoformat()
         )
         db.add(entry)
         db.commit()
-    except Exception: logger.exception("Failed to save user chat")
+    except Exception:
+        logger.exception("Failed to save user chat")
 
     response_text = ""
     data_payload = {}
@@ -309,13 +360,13 @@ def handle_chat(request: ChatRequest, db: Session = Depends(get_db)):
     else:
         predicted_intent = intent_classifier.predict(processed_query)
     logger.info(f"Session: {session_id} | Intent: {predicted_intent}")
-    
-    course_code = chat_handlers.extract_course_code(processed_query)
+
+    course_code = chat_handlers.extract_course_code(processed_query, db)
     if course_code:
         session_context["last_topic"] = course_code
-        if predicted_intent not in ["prerequisites", "course_registration", "gpa", "graduation", "career", "electives"]:
+        if predicted_intent not in ["course_registration", "gpa", "graduation", "career", "electives"]:
             predicted_intent = "course_info"
-    
+
     detected_dept = chat_handlers.extract_department(processed_query)
     is_department_statement = (
         predicted_intent == "department_info"
@@ -326,7 +377,6 @@ def handle_chat(request: ChatRequest, db: Session = Depends(get_db)):
         or "student" in user_query
     )
 
-    # Logic Routing
     if response_text:
         pass
 
@@ -334,28 +384,28 @@ def handle_chat(request: ChatRequest, db: Session = Depends(get_db)):
         response_text = f"I see you mentioned {detected_dept}. Just to confirm, is that your department?"
         session_context["department"] = detected_dept
         predicted_intent = "department_confirmation_request"
-    
+
     elif user_query in ["yes", "yeah", "correct", "yep"] and session_context.get("department") and not session_context.get("department_confirmed"):
         response_text = f"Great! I've noted that you are in the {session_context['department']} department. How can I help you today?"
         session_context["department_confirmed"] = True
-    
+
     elif predicted_intent == "greeting":
         response_text = chat_handlers.handle_greeting(session_context)
-    
+
     elif predicted_intent == "course_info":
         response_text = chat_handlers.handle_course_info(db, processed_query, course_code, session_context)
-    
-    elif predicted_intent == "prerequisites":
-        response_text = chat_handlers.handle_prerequisites(db, processed_query, course_code)
-    
+
     elif predicted_intent == "electives":
         response_text = chat_handlers.handle_electives(db, processed_query, session_context)
-    
+
     elif predicted_intent == "career":
         response_text = chat_handlers.handle_career(db, processed_query)
-    
+
     elif predicted_intent == "gpa":
         response_text = chat_handlers.handle_gpa(processed_query)
+
+    elif predicted_intent == "timetable":
+        response_text = chat_handlers.handle_timetable(db, processed_query, session_context)
 
     elif predicted_intent == "graduation":
         response_text = chat_handlers.handle_graduation(db, processed_query)
@@ -365,41 +415,37 @@ def handle_chat(request: ChatRequest, db: Session = Depends(get_db)):
 
     elif predicted_intent in ["course_registration", "course_management"]:
         response_text = chat_handlers.handle_registration(db, processed_query, session_context)
-    
+
     elif predicted_intent == "department_info":
         if detected_dept:
             response_text = f"I see you are in the {detected_dept} department. How can I assist you with your studies?"
             session_context["department"] = detected_dept
             session_context["department_confirmed"] = True
         else:
-            response_text = "Which department are you in? We currently support Computer Science, Cyber Security, and Information Technology."
-    
+            response_text = "Which department are you in? We currently support a wide range of departments including Computer Science, Cyber Security, Software Engineering, IT, etc."
+
     else:
-        # Check if they are asking about an unsupported department
         if "department" in user_query or "study" in user_query:
-            common_depts = ["accounting", "law", "medicine", "engineering", "nursing", "economics", "business"]
+            common_depts = ["medicine", "nursing", "law"]
             if any(d in user_query for d in common_depts):
-                response_text = "I'm sorry, but my current scope is limited to Computer Science, Cyber Security, and Information Technology. I don't have information for other departments yet."
+                response_text = "I'm sorry, but my current scope is focused on computing, engineering, and sciences. I don't have information for other departments yet."
             else:
                 response_text, source = chat_handlers.handle_fallback(db, user_query)
         else:
             response_text, source = chat_handlers.handle_fallback(db, user_query)
-        
-        context_info["source"] = "fallback" if "response_text" not in locals() else "logic"
-        if response_text == "" or predicted_intent == "unknown":
+
+        context_info["source"] = "fallback"
+        if response_text == "" or predicted_intent in ["unknown", "fallback"]:
             retrieved = retrieve(request.query, k=3)
             if retrieved:
                 context_info['retrieved'] = [{'text': r[0], 'score': r[1]} for r in retrieved]
-                response_text = "Related information found in course catalog:\n" + retrieved[0][0]
+                response_text = "Related information found in course catalog:\n" + "\n\n".join([r[0] for r in retrieved])
+                predicted_intent = "fallback" # Enforce generative response
             else:
-                response_text = "I'm not quite sure how to answer that. Could you try rephrasing or ask about courses, prerequisites, or graduation?"
+                if response_text == "":
+                    response_text = "I'm not quite sure how to answer that. Could you try rephrasing or ask about courses, registration, or graduation?"
 
-    # Hybrid Routing Architecture: 
-    # For structured intents where the database logic handler has already formulated a complete, 
-    # highly accurate, and conversational response, we bypass the local LLM rewrite.
-    # This guarantees 100% factual advising accuracy (0% hallucination) and delivers an INSTANT response (under 5ms)!
-    # We only invoke the local LLM for open-ended queries (intent: "unknown") to summarize handbook PDF passages.
-    if predicted_intent == "unknown":
+    if predicted_intent in ["unknown", "fallback"]:
         final_response_text = llm_service.generate_conversational_response(
             user_query=user_query,
             factual_context=response_text,
@@ -409,31 +455,31 @@ def handle_chat(request: ChatRequest, db: Session = Depends(get_db)):
     else:
         final_response_text = response_text
 
-    # Finalize Response
     session_context.update({
         "last_intent": predicted_intent,
         "last_query": user_query,
         "timestamp": datetime.now().isoformat()
     })
-    
+
     try:
         bot_entry = ChatHistory(
-            session_id=session_id, 
-            sender="bot", 
-            message=final_response_text, 
+            session_id=session_id,
+            sender="bot",
+            message=final_response_text,
             context=json.dumps(session_context),
             timestamp=datetime.now().isoformat()
         )
         db.add(bot_entry)
         db.commit()
         session_context["history"].append({"sender": "bot", "message": final_response_text, "timestamp": bot_entry.timestamp})
-    except Exception: logger.exception("Failed to save bot chat")
+    except Exception:
+        logger.exception("Failed to save bot chat")
 
     data_payload["thought_process"] = response_text
-    
+
     return ChatResponse(
-        intent=predicted_intent, 
-        response=final_response_text, 
+        intent=predicted_intent,
+        response=final_response_text,
         data=data_payload,
         session_id=session_id,
         context={}
